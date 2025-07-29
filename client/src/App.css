@@ -1,6 +1,38 @@
 .App {
   text-align: center;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height:50%;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+h3{
+  font-size: 30px; ;
+
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4682b4;
+  border-radius: 10px;
+  height:5%;
+  margin:30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+li {
+  text-decoration: none;
+  color: inherit;
+}
 body {
   background: linear-gradient(135deg, #f3e9dc 0%, #c8b6a6 100%);
   margin: 0;
@@ -37,7 +69,20 @@ body {
 .App-link {
   color: #61dafb;
 }
-
+.link{
+  text-decoration: none;
+  font-size: 20px;
+  color:#4682b4;
+}
+ul {
+        list-style-type: none;
+        color:darkslateblue;
+      }
+ul li:before {
+  content: '\2013';
+  position: absolute;
+  margin-left: -15px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
