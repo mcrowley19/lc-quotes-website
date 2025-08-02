@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage';
-import EditPage from './EditPage'; 
+import HomePage from './homePage';
+import EditPage from './editPage'; 
+import GamePage from './gamePage.js';
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
+import { useState } from 'react';
+
 
 function Nbar(){
   return(
@@ -35,12 +37,17 @@ function Nbar(){
   }
 
 function App() {
+
+  const [quoteList, setQuoteList] = useState([]);
+
+  
   return (
     <Router>
         <Nbar /> 
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/edit" element={<EditPage />} />
+            <Route path ="/" element = {<HomePage />} />
+            <Route path = "/edit" element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} />} />
+            <Route path ="/play" element = {<GamePage  quoteList = {quoteList}  />} />
         </Routes>
     </Router>
   );

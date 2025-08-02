@@ -9,14 +9,18 @@ import { useNavigate } from 'react-router-dom';
 
 
 //Component for the button that navigates to the play page
-function PlayButton() {
+function PlayButton({quoteList}) {
   //Tracks whether the button is clicked, allows for the button animation
   const [isClicked, SetClick] = useState(false);
-
+  const navigate = useNavigate();
   const handleClick = () => {
     SetClick(true);
     setTimeout(() => SetClick(false), 100); 
-    //navigate('/play'); 
+    if (quoteList.length > 1) {
+    navigate('/play'); }
+    else{
+      alert("Add at least one quote to play.");
+    }
   };
   return(
   <Button className="btn rounded-circle "   
@@ -41,12 +45,12 @@ function AddButton({quoteList, setQuoteList}) {
     setTimeout(() => SetClick(false), 100); 
     const selectedText = window.getSelection().toString();
     //Sets the quote list to the current quote list with the new quote added
-    if (selectedText !== '') {
-      setQuoteList([...quoteList, {'text': selectedText}]);
+    if (selectedText.length <5){
+      alert("Please highlight a quote that is at least 5 characters long.");
       }
-    else{
-      alert("Please highlight a quote to add.");
-    }
+    else {
+        setQuoteList([...quoteList, {'text': selectedText}]);
+      }
   };
   return(
   <Button className="btn rounded-circle "   
@@ -194,10 +198,8 @@ function QuoteCircle({quote, onDelete}) {
 }
 
 //Component for the right most card that contains all added quotes alongside the play and edit buttons
-function QuotesCard() {
+function QuotesCard({quoteList, setQuoteList}) {
   //The list containing all the quotes added by the user and a way to edit it
-  const [quoteList, setQuoteList] = useState([]);
-
   return (
     //The main card
     <Card className="d-flex"
@@ -234,20 +236,20 @@ function QuotesCard() {
         {/*The card that contains the play and edit buttons*/}
         <div style={{width:'100%',height:'10%',padding: '0px',margin: '0px'}}>
           <AddButton setQuoteList={setQuoteList} quoteList={quoteList}/>
-          <PlayButton />
+          <PlayButton quoteList={quoteList}/>
         </div>
     </Card>
   );
 }
 
 //The main function of the page
-function EditPage() {
+function EditPage({quoteList, setQuoteList}) {
   return (
     <div className="d-flex container-fluid"  style={{height: 'calc(100vh - 50px)',minWidth:'100vh',padding: '0px',margin: '0px'}}>
         <div style={{height:'10vh'}}></div>
             <ScrollCard />
             <TextCard />
-            <QuotesCard />
+            <QuotesCard quoteList={quoteList} setQuoteList={setQuoteList} />
     </div>
   );
 }

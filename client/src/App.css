@@ -34,7 +34,7 @@ li {
   color: inherit;
 }
 body {
-  background: linear-gradient(135deg, #f3e9dc 0%, #c8b6a6 100%);
+  background: linear-gradient(135deg, #f4ebdf 30%, #c8b6a6 95%);
   margin: 0;
   padding: 0;
 }
@@ -53,6 +53,10 @@ body {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.noWhitespace{
+    white-space: pre;
 }
 
 .App-header {
