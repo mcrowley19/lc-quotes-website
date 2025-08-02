@@ -1,6 +1,6 @@
 # Quote Revision App
 
-A web app for revising and testing yourself on quotes for Leaving Cert English
+A web app for revising and testing yourself on quotes from Shakespeare's plays
 
 ## Requirements
 
@@ -13,9 +13,9 @@ A web app for revising and testing yourself on quotes for Leaving Cert English
 
 ## Features
 
-- Navigate through plays by scene and act *(planned)*
-- Highlight and select quotes for revision *(planned)*
-- Test yourself by filling in unfinished quotes *(planned)*
+- Navigate through plays by scene and act 
+- Highlight and select quotes for revision 
+- Test yourself by filling in unfinished quotes 
 - Build up a streak of quotes finished correctly *(planned)*
 
 ## Setup (for local development)
