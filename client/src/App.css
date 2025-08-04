@@ -2,39 +2,27 @@
   text-align: center;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height:50%;
 
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
 h3{
   font-size: 30px; ;
 
 }
 /* Handle */
-::-webkit-scrollbar-thumb {
-  background: #4682b4;
-  border-radius: 10px;
-  height:5%;
-  margin:30px;
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+body{
+  overflow-y: hidden;
 }
-
 li {
   text-decoration: none;
   color: inherit;
 }
 body {
-  background: linear-gradient(135deg, #f4ebdf 30%, #c8b6a6 95%);
+background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
 }

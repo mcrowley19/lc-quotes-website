@@ -13,10 +13,10 @@ A web app for revising and testing yourself on quotes from Shakespeare's plays
 
 ## Features
 
-- Navigate through plays by scene and act 
-- Highlight and select quotes for revision 
-- Test yourself by filling in unfinished quotes 
-- Build up a streak of quotes finished correctly *(planned)*
+- Navigate through plays by scene and act.
+- Highlight and select quotes for revision .
+- Test yourself with randomly shortened quotes.
+- Build up a streak of correctly answered quotes.
 
 ## Setup (for local development)
 
