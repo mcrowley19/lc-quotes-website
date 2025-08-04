@@ -37,3 +37,8 @@ Thumbs.db
 *.bak
 *.tmp
 *.temp
+
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*
