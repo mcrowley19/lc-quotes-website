@@ -20,6 +20,8 @@ function GamePage({quoteList}) {
     const [correctQuotes,setCorrectQuotes] = useState([])
     const [streak,setStreak] = useState(0)
 
+    //This ensures the streak number does not load before the image behind it
+      const [imageLoaded, setImageLoaded] = useState(false);
     //This function assigns the values to quote and shortQuote
     const createQuote = function(){
         if (quoteList.length > 0){
@@ -106,30 +108,18 @@ function GamePage({quoteList}) {
   return (
     
     <div align="center">
-        <button style={{
-            backgroundColor:"transparent", 
-            border:"none",
-            display:"inline", 
-            float:"left",
-            height:"10vh",
-            width:"10vh",
-            marginLeft:"5vh",
-            marginTop:"2vh"
-            }}
+        <button className="back-button"
             onClick = {handleClick}> 
-            <img src="/arrow.svg" 
-            style={{
-                height:"100%",
-                width:"100%"
-            }}></img></button>
+            <img src="/arrow.svg" className="backArrow" alt="Navigate to edit page button"></img>
+        </button>
 
-        {streak > 0 && <div style ={{
+        {streak > 0 && <div className="streak"style ={{
             display: "inline-block",
-            height:"20vh",
-            width:"20vh",
+
             position:"relative"
              }}>
-            <img src="/flame.svg" style={{  display: "block", width: "100%",height: "auto", }}></img>
+            <img src="/flame.svg" style={{  display: "block", width: "100%",height: "auto", }}  onLoad={() => setImageLoaded(true)} alt="Streak flame"></img>
+           { imageLoaded === true &&
             <div style={{
                 position: "absolute",
                 top: "50%",
@@ -137,16 +127,16 @@ function GamePage({quoteList}) {
                 transform: "translate(-50%, -10%)",
                 color: "#ffffffff",
                 fontWeight: "bold",
-                fontSize: "45px",
+
                 fontFamily: "Arial, sans-serif",
                 textShadow: "-1px -1px 0 black, 0 -1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px  1px 0 black, 0 1px 0 black,  -1px  1px 0 black, -1px  0 0 black"
             }}>
                 {streak}
-            </div>
+            </div>}
         </div>}
         {streak === 0 && <div style={{height:"20vh"}}></div>}
         <div style={{height:"10vh"}}></div>
-        <div style = {{height:"40vh"}}>
+        <div className="gameqContainer"style = {{height:"40vh"}}>
             <h1 className = "noWhitespace"style={{color: quoteColors[colorIndex]}}>{shortQuote}</h1>
              {/* colorIndex is reused here to only show userInput if the user loses*/}
             {colorIndex === 2 && <h1 style={{color:"gray"}}>{userInput}</h1>}
@@ -158,7 +148,7 @@ function GamePage({quoteList}) {
             value ={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Rewrite the quote correctly" 
-            style={{width:"60%"}} 
+
             ></input>
         </form>
     </div>

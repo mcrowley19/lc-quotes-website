@@ -1,9 +1,9 @@
-import Container from 'react-bootstrap/Container';
+import "./App.css";
 
 function Macbeth() {
   return (
 <div>
-    <h3>ACT I</h3>
+    <h3 className="heading">ACT I</h3>
     <h3 id="1_1">SCENE I. A desert place.</h3>
     <p></p><blockquote>
     <i>Thunder and lightning. Enter three Witches</i>

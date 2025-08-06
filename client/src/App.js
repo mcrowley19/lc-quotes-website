@@ -1,33 +1,33 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './homePage';
-import EditPage from './editPage'; 
-import GamePage from './gamePage';
-import Navbar from 'react-bootstrap/Navbar';
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./homePage";
+import EditPage from "./editPage"; 
+import GamePage from "./gamePage";
+import { useState } from "react";
 
 
 function Nbar(){
   return(
-  <div className="container-fluid" style={{maxWidth: '100%',padding: '0px',margin: '0px'}}>
-    <Navbar className="navbar navbar-dark"
+    <div
     style={{
-      background:'#1f324a', 
+      background:"#1f324a", 
       paddingLeft: "1%", 
-      height: '8vh', 
-      width: '100%',
+      height: "8vh", 
+      width: "100%",
+      maxWidth: "100%",
+      display:"flex",
+      alignItems:"center"
 
       }}>
-      <Navbar.Brand href="/" className="fw-bold"style={{color: 'white', fontSize: '24px'}}>
+      <a href="/" className="fw-bold"style={{color: "white", fontSize: "3.5vh",display:"flex",textDecoration:"none"}}>
         <img
-        style={{ marginBottom: "5%",marginRight:"2%"}}
+        style={{marginTop:"3.5px",marginRight:"5px",display:"block"}}
           alt=""
           src="\chat.png"
-          width="35"
-          height="30"
+          width="30px"
+          height="30px"
         />
         LearnQuotes
-      </Navbar.Brand>
-    </Navbar>
+      </a>
     </div>
   );
   }

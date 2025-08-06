@@ -1,87 +1,355 @@
-.App {
-  text-align: center;
-}
 
+/* Sitewide styling*/
 
-h3{
-  font-size: 30px; ;
-
-}
-/* Handle */
-
-body{
-  overflow-y: hidden;
-}
-li {
-  text-decoration: none;
-  color: inherit;
-}
 body {
-background: #141E30;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+overflow-y: hidden;
+background: #141E30;  
+background: -webkit-linear-gradient(to top, #243B55, #141E30); 
 background: linear-gradient(to top, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
+background-attachment: fixed;
 }
+
 @font-face {
   font-family: 'MedievalSharp';
     src: url('./assets/fonts/MedievalSharp-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*Home page*/
+
+.play-card{
+  /*This also contains inline styling through react*/
+  width: 40vh;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 30px;
+  height: 60vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.play-text{
+  height: 15%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  border-radius: 30px;
+  color:#ffffffff;
+  font-size: 40px;
+  font-family: MedievalSharp;
 }
+
+.homepage-container{
+  display: flex; 
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+
+ /*Edit page*/
+
+.play-button, .add-button{
+  /*Also contains react inline styling*/
+  width: 80px;
+  height: 80px;
+  margin-left: 20%;
+  border-radius: 100%;
+  border: solid;
+  border-color:white;
+  border-width: 1px;
+}
+
+.play-image{
+  width: 30px;
+  height: 30px;
+}
+
+.add-image{
+  width: 65px;
+  height: 65px;
+}
+
+.play-text-card{
+  padding-top:30px;
+  background-color: white;
+  height: 92vh;
+  overflow-y: auto;
+  border: none;
+  border-radius: 0px;
+}
+
+
+p{
+  font-size:20px;
+}
+
+h3 {
+  font-size: 3px; /* Adds space on desktop */
+}
+
+
+.scroll-card{
+  /*Also contains react inline styling*/
+  background:white;
+  height: 92vh;
+  overflow-y: auto;
+  border-radius: 0px;
+  border-right: none;
+}
+
+.scroll-card.expanded {
+  width: 12vw;
+}
+
+.scroll-card.collapsed {
+  width: 5vw;
+}
+
+.scroll-collapse{
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  margin: 5px; 
+}
+
+.collapse-image{
+  height:100%;
+  width:100%;
+}
+
+.list-container {
+  width:60%;
+  margin:auto;
+}
+
+ul {
+  list-style-type: none;
+  /*important needed to override bootstrap*/
+  padding: 0px !important;
+}
+.link{
+  text-decoration: none;
+  font-size: 3vh;
+  color:#4682b4;
+}
+
+.quote-circle{
+  padding-left: 8px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.quote-circle-green-half{
+  width: 80%;
+  height: fit-content;
+  border-radius: 5px 0px 0px 5px;
+  background-color: #41a845;
+  color:white;
+  padding: 5px;
+}
+
+.quote-circle-red-half{
+  width: 15%;
+  margin-right:10px;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  background-color: #cc1414ff;
+  display: flex;
+  align-items:center;
+}
+
+.minus-image{
+  width: 50px;
+   height: 25px;
+}
+
+.quotes-container{
+  width: 30vw;
+  display: inline-block;
+  background: #162132;
+  height: 92vh;
+
+}
+
+.hint-text{
+  font-size:25px;
+  border-bottom: solid;
+  border-color: white;
+  padding: 10px; 
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.quote-bubbles-card{
+  height: 65vh;
+  overflow-x: hidden;
+}
+
+.quote-buttons{
+  display:flex;
+  align-items:center;
+  height: 10vh;
+  margin:auto;
+  width:75%;
+}
+
+.editpage-div{
+  display: flex; 
+  height: 92vh;
+  min-width:100vw;
+  overflow-y: hidden
+}
+
+/*Changes for mobile devices*/
+@media (max-width: 768px) {
+.play-button{
+  margin-left:10% ;
+  width: 40px ;
+  height:40px ;
+}
+.play-image{
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+.add-button{
+  width: 40px ;
+  height:40px ;
+  margin-left:15% ;
+}
+
+.add-image{
+  width: 40px ;
+  height: 40px;
+  margin-left: -6px ;
+
+}
+
+
+.scroll-collapse{
+  width:30px;
+  height:30px;
+}
+.scroll-card.expanded {
+    width: 60vw;
+    border-right:solid;
+    border-width:2px;
+    border-color:gray
+}
+
+.scroll-card.collapsed {
+    width: 20vw;
+}
+
+
+.list-heading{
+  margin-left:0px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+
+.quotes-container{
+  width: 60vh;
+}
+
+.quote-bubbles-card{
+  height: 70vh;
+  
+}
+
+.quote-bubble-text{
+  font-size:8px;
+}
+.minus-image{
+  width: 20px;
+  height: 10px;
+}
+
+.hint-text{
+  font-size:1.5vh;
+}
+
+h3{
+    font-size: 15px !important;
+  }
+p{
+  font-size:10px;
+}
+blockquote{
+  font-size:8px !important;
+}
+}
+
+
+/*Play page*/
+
+.back-button{
+    background-color: transparent; 
+    border: none;
+    display:inline; 
+    float:left;
+    height:10px;
+    width:10px;
+    margin-top:2vh;
+    margin-left: 10px;
+}
+.backArrow{
+  height:70px;
+  width:70px;
+}
+
+
+
+
+
 
 .noWhitespace{
     white-space: pre;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+/*Important is needed to override bootstrap*/
+input{
+  width:60% !important;
 }
 
-.App-link {
-  color: #61dafb;
+.streak{
+  height:20vh;
+  width:20vh;
+  font-size: 45px;
+  margin-left:-10px
+}
+
+
+@media (max-width: 768px) {
+.streak{
+  height:15vh;
+  width:15vh;
+  font-size: 35px;
+  margin-left:10px;
+  }
+input{
+  width:90% !important;
+}
+.noWhitespace{
+  font-size:20px;
+}
+ 
+.back-button{
+  margin-left:0
 }
 .link{
-  text-decoration: none;
-  font-size: 20px;
-  color:#4682b4;
-}
-ul {
-        list-style-type: none;
-        color:darkslateblue;
-      }
-ul li:before {
-  content: '\2013';
-  position: absolute;
-  margin-left: -15px;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-size:15px;
+  margin-left:-5px;
+  font-size:12px;
 }
 
 
+.backArrow{
+  height:40px;
+  width:40px;
+}
+}
