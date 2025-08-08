@@ -16,31 +16,54 @@ background-attachment: fixed;
   font-style: normal;
 }
 
+.playHeading{
+  width:fit-content;
+  margin:auto;
+  font-weight:bold;
+}
+
 /*Home page*/
 
 .play-card{
   /*This also contains inline styling through react*/
-  width: 40vh;
+  width: 18vw;
   background-size: cover;
   background-position: center;
   border: none;
   border-radius: 30px;
   height: 60vh;
+  display:flex;
+  align-content:center;
 }
 
 .play-text{
   height: 15%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  border-radius: 30px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  border-radius: 30px 30px 0px 0px;
   color:#ffffffff;
-  font-size: 40px;
+  font-size: 35px;
   font-family: MedievalSharp;
+  width:100%;
+  padding:3px;
 }
 
+.carousel-buttons{
+  width:fit-content;
+  height:fit-content;
+  background:transparent;
+  border: none;
+}
+
+
 .homepage-container{
-  display: flex; 
-  justify-content: center;
+  display: grid; 
+  grid-template-areas:
+    "buttonL left center right buttonR";
+  grid-template-columns:1fr 2fr 2fr 2fr 1fr;
   padding-top: 10vh;
+  width:70%;
+  margin:auto;
+  place-items:center;
 }
 
 
@@ -74,6 +97,7 @@ background-attachment: fixed;
   overflow-y: auto;
   border: none;
   border-radius: 0px;
+  width:70vw;
 }
 
 

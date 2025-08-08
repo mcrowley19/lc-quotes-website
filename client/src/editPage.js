@@ -1,7 +1,7 @@
-import Macbeth from "./Macbeth"; 
+
 import "./App.css";
 import { useState } from "react";
-import { HashLink } from "react-router-hash-link";
+
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -54,19 +54,19 @@ function AddButton({quoteList, setQuoteList}) {
 
 }
 
-//Component for the card that displays the play
-function Textdiv({isNavbarWide}) {
+
+function Textdiv({isNavbarWide,play}) {
   return (
     <div className="play-text-card">
       <div style={{marginLeft: isNavbarWide ? "30px":"0px",}}>
-        <Macbeth />
+        {play}
       </div>
     </div>
   );
 }
 
 //Component for the card used to scroll to different scenes
-function Scrolldiv({isClicked, setClick}) {
+function Scrolldiv({isClicked, setClick, scenes}) {
 
   const handleClick = () => {
     setClick(!isClicked);
@@ -78,50 +78,7 @@ function Scrolldiv({isClicked, setClick}) {
       </button>
 
         {/*The content of the navbar only loads when isClicked is true*/}
-        {isClicked && (
-          <div className="list-container">
-            <div style={{height:"100%"}}></div>
-              <h3 className="list-heading">Act 1</h3>
-                <ul>
-                    <li><HashLink className="link" smooth to="/edit/#1_1">Scene 1</HashLink></li>
-                    <li><HashLink  className="link" smooth to="/edit/#1_2"> Scene 2</HashLink></li>
-                    <li><HashLink  className="link" smooth to="/edit/#1_3">Scene 3</HashLink></li>
-                    <li><HashLink className="link" smooth to="/edit/#1_4">Scene 4</HashLink></li>
-                    <li><HashLink className="link" smooth to="/edit/#1_5">Scene 5</HashLink></li>
-                    <li><HashLink className="link" smooth to="/edit/#1_6">Scene 6</HashLink></li>
-                    <li><HashLink className="link" smooth to="/edit/#1_7">Scene 7</HashLink></li>
-                </ul>
-                <h3  className="list-heading">Act 2</h3>
-                <ul>
-                    <li><HashLink className="link" smooth to="/edit/#2_1">Scene 1</HashLink></li>
-                    <li><HashLink className="link"smooth to="/edit/#2_2">Scene 2</HashLink></li>
-                    <li><HashLink className="link"smooth to="/edit/#2_3">Scene 3</HashLink></li>
-                    <li><HashLink className="link"smooth to="/edit/#2_4">Scene 4</HashLink></li>
-                </ul>
-                <h3  className="list-heading">Act 3</h3>
-                    <ul>
-                        <li><HashLink className="link"smooth to="/edit/#3_1">Scene 1</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#3_2">Scene 2</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#3_3">Scene 3</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#3_4">Scene 4</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#3_5">Scene 5</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#3_6">Scene 6</HashLink></li>
-                    </ul>
-                <h3  className="list-heading">Act 4</h3>
-                    <ul>
-                        <li><HashLink className="link"smooth to="/edit/#4_1">Scene 1</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#4_2">Scene 2</HashLink></li>
-                        <li><HashLink className="link"smooth to="/edit/#4_3">Scene 3</HashLink></li>
-                    </ul>
-                    <h3  className="list-heading">Act 5</h3>
-                    <ul>
-                        <li><HashLink className="link" smooth to="/edit/#5_1">Scene 1</HashLink></li>
-                        <li><HashLink className="link" smooth to="/edit/#5_2">Scene 2</HashLink></li>
-                        <li><HashLink className="link" smooth to="/edit/#5_3">Scene 3</HashLink></li>
-                        <li><HashLink className="link" smooth to="/edit/#5_4">Scene 4</HashLink></li>
-                        <li><HashLink className="link" smooth to="/edit/#5_5">Scene 5</HashLink></li>
-                    </ul>
-            </div>)}
+        {isClicked && scenes}
 
   </div>
   );
@@ -175,13 +132,13 @@ function Quotesdiv({quoteList, setQuoteList}) {
 }
 
 //The main function of the page
-function EditPage({quoteList, setQuoteList}) {
+function EditPage({quoteList, setQuoteList, play, scenes}) {
     const [isClicked, setClick] = useState(false);
   return (
     <div className="editpage-div" >
         <div style={{height:"10vh"}}></div>
-            <Scrolldiv isClicked={isClicked} setClick={setClick}/>
-            <Textdiv isNavbarWide={isClicked}/>
+            <Scrolldiv isClicked={isClicked} setClick={setClick} scenes={scenes}/>
+            <Textdiv isNavbarWide={isClicked} play={play}/>
             <Quotesdiv quoteList={quoteList} setQuoteList={setQuoteList} />
     </div>
   );

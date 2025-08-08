@@ -3,6 +3,13 @@ import HomePage from "./homePage";
 import EditPage from "./editPage"; 
 import GamePage from "./gamePage";
 import { useState,useEffect } from "react";
+import Macbeth from "./Texts/Macbeth"; 
+import Othello from "./Texts/Othello"; 
+import Merchant from "./Texts/Merchant"; 
+import MacbethScenes from "./Scenes/MacbethScenes"
+import OthelloScenes from "./Scenes/OthelloScenes"
+import MerchantScenes from "./Scenes/MerchantScenes"
+
 
 
 function Nbar(){
@@ -75,8 +82,17 @@ This app is only available on desktop devices. Please use a larger screen.
         <Nbar /> 
         <Routes >
             <Route path ="/" element = {<HomePage />} />
-            <Route path = "/edit" element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} />} />
-            <Route path ="/play" element = {<GamePage  quoteList = {quoteList}  />} />
+            <Route path = "/macbeth" 
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Macbeth />} scenes={<MacbethScenes />}/>} />    
+
+            <Route path = "/othello" 
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Othello />} scenes={<OthelloScenes />} />} />
+
+            <Route path = "/merchant-of-venice" 
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Merchant />} scenes={<MerchantScenes />}/>} />
+
+            <Route path ="/play" 
+              element = {<GamePage  quoteList = {quoteList}  />} />
         </Routes>
     </Router>
   );

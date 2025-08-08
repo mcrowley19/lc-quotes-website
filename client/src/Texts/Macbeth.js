@@ -1,9 +1,10 @@
-import "./App.css";
+import "../App.css";
 
 function Macbeth() {
   return (
 <div>
-    <h3 className="heading">ACT I</h3>
+    <h1 className="playHeading">Macbeth</h1>
+    <h3>ACT I</h3>
     <h3 id="1_1">SCENE I. A desert place.</h3>
     <p></p><blockquote>
     <i>Thunder and lightning. Enter three Witches</i>
