@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /credits/
+Sitemap: https://www.learnquotes.com/sitemap.xml

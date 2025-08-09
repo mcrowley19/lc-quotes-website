@@ -56,6 +56,7 @@ function CreditsPage() {
       licenseUrl: "https://www.svgrepo.com/page/licensing/",
       changes: "Modified from original"
     },
+
     {
       title: "Chat Icon",
       author: "Freepik",
@@ -65,6 +66,7 @@ function CreditsPage() {
       licenseUrl: "https://www.freepikcompany.com/legal",
       changes: "No changes made"
     }
+    
   ];
 
   return (
