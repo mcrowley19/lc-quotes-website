@@ -9,7 +9,7 @@ import Merchant from "./Texts/Merchant";
 import MacbethScenes from "./Scenes/MacbethScenes"
 import OthelloScenes from "./Scenes/OthelloScenes"
 import MerchantScenes from "./Scenes/MerchantScenes"
-
+import CreditsPage from "./Credits"
 
 
 function Nbar(){
@@ -25,7 +25,7 @@ function Nbar(){
       alignItems:"center"
 
       }}>
-      <a href="/" className="fw-bold"style={{color: "white", fontSize: "3.5vh",display:"flex",textDecoration:"none"}}>
+      <a href="/" className="navText">
         <img
         style={{marginTop:"3.5px",marginRight:"5px",display:"block"}}
           alt=""
@@ -35,6 +35,7 @@ function Nbar(){
         />
         LearnQuotes
       </a>
+      <a href="/credits" className="navText" style={{marginLeft:"auto",marginRight:"25px",fontSize:"20px"}}>Icon credits</a>
     </div>
   );
   }
@@ -82,14 +83,15 @@ This app is only available on desktop devices. Please use a larger screen.
         <Nbar /> 
         <Routes >
             <Route path ="/" element = {<HomePage />} />
+            <Route path ="/credits" element = {<CreditsPage />} />
             <Route path = "/macbeth" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Macbeth />} scenes={<MacbethScenes />}/>} />    
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Macbeth />} scenes={<MacbethScenes />} title={"Edit Quotes - Macbeth"}/>} />    
 
             <Route path = "/othello" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Othello />} scenes={<OthelloScenes />} />} />
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Othello />} scenes={<OthelloScenes />} title={"Edit Quotes - Othello"} />} />
 
             <Route path = "/merchant-of-venice" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Merchant />} scenes={<MerchantScenes />}/>} />
+              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Merchant />} scenes={<MerchantScenes />} title={"Edit Quotes - The Merchant of Venice"}/>} />
 
             <Route path ="/play" 
               element = {<GamePage  quoteList = {quoteList}  />} />

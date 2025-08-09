@@ -51,7 +51,9 @@ function HomePage() {
     setCardsPos(prev => [prev[2],prev[0],prev[1]])
   }
   return (
+
     <div className="homepage-container">
+        <title>LearnQuotes</title>
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
         <img src="/arrow.svg" className="backArrow" alt= "Move selection left"></img>
       </button>

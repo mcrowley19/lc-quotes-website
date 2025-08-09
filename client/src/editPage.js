@@ -1,7 +1,6 @@
 
 import "./App.css";
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -132,10 +131,11 @@ function Quotesdiv({quoteList, setQuoteList}) {
 }
 
 //The main function of the page
-function EditPage({quoteList, setQuoteList, play, scenes}) {
+function EditPage({quoteList, setQuoteList, play, scenes,title}) {
     const [isClicked, setClick] = useState(false);
   return (
     <div className="editpage-div" >
+      <title>{title}</title>
         <div style={{height:"10vh"}}></div>
             <Scrolldiv isClicked={isClicked} setClick={setClick} scenes={scenes}/>
             <Textdiv isNavbarWide={isClicked} play={play}/>
