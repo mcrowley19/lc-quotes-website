@@ -39,8 +39,8 @@ function AddButton({quoteList, setQuoteList}) {
     setTimeout(() => setClick(false), 300); 
     const selectedText = window.getSelection().toString();
     //Sets the quote list to the current quote list with the new quote added
-    if (selectedText.length <5){
-      alert("Please highlight a quote that is at least 5 characters long.");
+    if (selectedText.length <5 | selectedText.length >50){
+      alert("Please highlight a quote that is between 5 and 50 characters long.");
       }
     else {
         setQuoteList([...quoteList, {id: uuidv4(),"text": selectedText}]);

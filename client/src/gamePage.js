@@ -130,10 +130,7 @@ function GamePage({quoteList}) {
         }}
       />
 
-        <button className="back-button"
-            onClick = {handleClick}> 
-            <img src="/arrow.svg" className="backArrow" alt="Navigate to edit page button"></img>
-        </button>
+
 
         {streak > 0 && <div className="streak"style ={{
             display: "inline-block",
