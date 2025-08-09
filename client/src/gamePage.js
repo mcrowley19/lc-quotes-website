@@ -105,10 +105,31 @@ function GamePage({quoteList}) {
         return <Navigate to="/edit" replace />;}
 
 
+
+
+        
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    "name": "Test Yourself",
+    "educationalLevel": ["UpperSecondary","Leaving Certificate","A-Levels","GCSE"],
+    "author": { "@type": "Person", "name": "William Shakespeare" },
+    "url": "https://learnquotes.com/play",
+    "description": 'An interactive quiz testing users on selected quotes',
+  };
+
   return (
     
     <div align="center">
-              <title>Test Yourself</title>
+        <title>Test Yourself</title>
+
+   <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData),
+        }}
+      />
+
         <button className="back-button"
             onClick = {handleClick}> 
             <img src="/arrow.svg" className="backArrow" alt="Navigate to edit page button"></img>

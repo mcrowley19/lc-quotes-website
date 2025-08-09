@@ -85,13 +85,31 @@ This app is only available on desktop devices. Please use a larger screen.
             <Route path ="/" element = {<HomePage />} />
             <Route path ="/credits" element = {<CreditsPage />} />
             <Route path = "/macbeth" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Macbeth />} scenes={<MacbethScenes />} title={"Edit Quotes - Macbeth"}/>} />    
+              element = {<EditPage 
+                quoteList = {quoteList} 
+                setQuoteList = {setQuoteList} 
+                play={<Macbeth />} 
+                scenes={<MacbethScenes />} 
+                title={"Edit Quotes - Macbeth"}
+                url={"https://learnquotes.com/macbeth"}/>} />    
 
             <Route path = "/othello" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Othello />} scenes={<OthelloScenes />} title={"Edit Quotes - Othello"} />} />
+              element = {<EditPage 
+                quoteList = {quoteList} 
+                setQuoteList = {setQuoteList} 
+                play={<Othello />} 
+                scenes={<OthelloScenes />} 
+                title={"Edit Quotes - Othello"}
+                url={"https://learnquotes.com/othello"}/>} />
 
             <Route path = "/merchant-of-venice" 
-              element = {<EditPage quoteList = {quoteList} setQuoteList = {setQuoteList} play={<Merchant />} scenes={<MerchantScenes />} title={"Edit Quotes - The Merchant of Venice"}/>} />
+              element = {<EditPage 
+                quoteList = {quoteList} 
+                setQuoteList = {setQuoteList} 
+                play={<Merchant />} s
+                cenes={<MerchantScenes />} 
+                title={"Edit Quotes - The Merchant of Venice"} 
+                url={"https://learnquotes.com/merchant-of-venice"}/>} />
 
             <Route path ="/play" 
               element = {<GamePage  quoteList = {quoteList}  />} />

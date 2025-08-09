@@ -50,10 +50,34 @@ function HomePage() {
   const leftClick = () => {
     setCardsPos(prev => [prev[2],prev[0],prev[1]])
   }
+
+  const articleStructuredData = [{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    "name": 'LearnQuotes',
+    "url": 'https://learnquotes.com',
+    "description": 'A site to help students learn and revise quotes from Shakespeare',
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LearnQuotes",
+    "url": "https://learnquotes.com",
+    "logo": "https://learnquotes.com/chat.png"
+  }];
   return (
 
     <div className="homepage-container">
-        <title>LearnQuotes</title>
+
+      <title>LearnQuotes</title>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData),
+        }}
+      />
+
+
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
         <img src="/arrow.svg" className="backArrow" alt= "Move selection left"></img>
       </button>

@@ -130,12 +130,36 @@ function Quotesdiv({quoteList, setQuoteList}) {
   );
 }
 
+
+
+
 //The main function of the page
-function EditPage({quoteList, setQuoteList, play, scenes,title}) {
+function EditPage({quoteList, setQuoteList, play, scenes,title,url}) {
+
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Play',
+    "name": title,
+    "author": { "@type": "Person", "name": "William Shakespeare" },
+    "url": url,
+    "description": `A page where users can select quotes to learn from ${play}`,
+
+  };
+
+
     const [isClicked, setClick] = useState(false);
   return (
     <div className="editpage-div" >
       <title>{title}</title>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleStructuredData),
+        }}
+      />
+
+
+      
         <div style={{height:"10vh"}}></div>
             <Scrolldiv isClicked={isClicked} setClick={setClick} scenes={scenes}/>
             <Textdiv isNavbarWide={isClicked} play={play}/>
