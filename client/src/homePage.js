@@ -1,4 +1,5 @@
-import "./App.css";
+
+import "./homePage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -66,7 +67,7 @@ function HomePage() {
     "logo": "https://learnquotes.com/chat.png"
   }];
   return (
-
+<div>
     <div className="homepage-container">
 
       <title>LearnQuotes</title>
@@ -79,15 +80,21 @@ function HomePage() {
 
 
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
-        <img src="/arrow.svg" className="backArrow" alt= "Move selection left"></img>
+        <img src="/arrow.svg" className="carousel-arrows" alt= "Move selection left"></img>
       </button>
       <GameCard image="othello.jpg" play="Othello" float= {cardsPos[0]} link="/othello"/>
       <GameCard image="macbeth.jpg" play="Macbeth" float= {cardsPos[1]} link="/macbeth"/>
       <GameCard image="merchant.jpg" play="The Merchant of Venice" float= {cardsPos[2]} link="/merchant-of-venice"/>
       <button onClick={rightClick}  style={{gridArea:"buttonR"}} className="carousel-buttons">
-          <img src="/forwardArrow.svg" className="backArrow" alt= "Move selection left"></img>
+          <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left"></img>
       </button>
+
     </div>
+
+      <div className="mobile-warning">
+      This website was designed for desktop use and may not work as intended on mobile
+      </div>
+</div>
   );
 }
 export default HomePage;

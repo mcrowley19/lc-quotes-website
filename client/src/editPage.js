@@ -1,5 +1,6 @@
 
-import "./App.css";
+
+import "./editPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
@@ -22,7 +23,7 @@ function PlayButton({quoteList}) {
   return(
   <button className="play-button"
   style={{ 
-    background: isClicked ? "#2a682cff" : "#42a845",
+    background: isClicked ? "#1e4a89ff" : "hsl(214, 40%, 40%)",
   }}
     onClick= {handleClick}>
     <img src="/play.svg" className="play-image" alt="Navigate To Game page Button"/>
@@ -37,29 +38,29 @@ function AddButton({quoteList, setQuoteList}) {
   const handleClick = () => {
     setClick(true);
     setTimeout(() => setClick(false), 300); 
-    const selectedText = window.getSelection().toString();
+    const selectedText = window.getSelection().toString().trim();
+    const spacelessText = selectedText.replace(/\s/g, '');
     //Sets the quote list to the current quote list with the new quote added
-    if (selectedText.length <5 | selectedText.length >50){
-      alert("Please highlight a quote that is between 5 and 50 characters long.");
+    if (spacelessText.length <5 | spacelessText.length >75){
+      alert("Please highlight a quote that is between 5 and 75 characters long.");
       }
     else {
         setQuoteList([...quoteList, {id: uuidv4(),"text": selectedText}]);
       }
   };
   return(
-  <button className="add-button" onClick= {handleClick}   style={{ background: isClicked ? "#1a3e6eff" : "#225598ff"}}>
+  <button className="add-button" onClick= {handleClick}   style={{ background: isClicked ? "#1e4a89ff" : "hsl(214, 40%, 40%)"}}>
     <img src="/plus.svg" alt="Add quote to list" className="add-image"/>
   </button>)
 
 }
 
 
-function Textdiv({isNavbarWide,play}) {
+function Textdiv({play}) {
   return (
     <div className="play-text-card">
-      <div style={{marginLeft: isNavbarWide ? "30px":"0px",}}>
         {play}
-      </div>
+
     </div>
   );
 }
@@ -87,15 +88,16 @@ function Scrolldiv({isClicked, setClick, scenes}) {
 //The quote argument is equal to the most recent quote when the function is called
 //The onDelete argument is a function that removes the quote from the list when the delete button is clicked
 function QuoteCircle({quote, onDelete}) {
+
+  const [isDelHovered, setIsDelHovered] = useState(false);
   return (
  <div className="quote-circle">
     <div className = "quote-circle-green-half">
+    <button className="quote-circle-red-half" onClick={onDelete} onMouseEnter={() => setIsDelHovered(true)} onMouseLeave={() => setIsDelHovered(false)}>
+      <img src= {isDelHovered ? "/redtrash.svg" : "/trash.svg"} className="del-button" alt="Remove Quote Button"/>
+    </button>
       <p className="quote-bubble-text"style={{margin:"5px"}}>{quote.text}</p>
     </div>
-
-    <button className="quote-circle-red-half" onClick={onDelete}>
-      <img src="/trash.svg" className="minus-image" alt="Remove Quote Button"/>
-    </button>
   </div>
   );
 }
@@ -103,19 +105,35 @@ function QuoteCircle({quote, onDelete}) {
 //Component for the right most card that contains all added quotes alongside the play and edit buttons
 function Quotesdiv({quoteList, setQuoteList}) {
   //The list containing all the quotes added by the user and a way to edit it
+
+  const [isClicked,setClicked] = useState(false)
+  const handleClick = () => {
+    if (isClicked === false){
+      setClicked(true)}
+    else{
+      setClicked(false)
+    }
+  }
   return (
     //The main card
     <div className="quotes-container">
       {/* The card containing the explanation at the top of the page */}
-      <div className="hint-text">
-         Highlight a quote and click + to add it to the list.
-      </div>
-        <br />
         {/*The card that contains the quotes*/}
       <div className="quote-bubbles-card">
          {/* This renders a new quote circle for each item in quoteList.*/}
         {/* It gives each quote circle a key corresponding to what index in the list the quote it contains is*/}
           {/*It creates an onDelete function that deletes the bubble"s quote from the list. This is called in the QuoteCircle function when a button is pressed*/}
+        
+      <div style={{height:"fit-content",width:"100%",justifyContent:"center",display:"flex",padding:"20px"}}>
+        { quoteList.length <1 && 
+        <button  onClick= {handleClick} className={`hint-button ${isClicked ? "clickedTooltip": ""}`} data-tooltip="Highlight a quote and click + to add it to the list">
+          <h5 className="question-mark"style={{fontSize:"50px",fontWeight:"bold",color:"white"}}>?</h5> 
+        </button>
+        }
+        </div>
+      
+        
+        
         {quoteList.map((quote, index) => (
           <QuoteCircle key={quote.id} quote={quote} onDelete={() => setQuoteList(prev => prev.filter((_, i) => i !== index))}/>
         ))}
@@ -154,12 +172,8 @@ function EditPage({quoteList, setQuoteList, play, scenes,title,url}) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleStructuredData),
-        }}
-      />
+          __html: JSON.stringify(articleStructuredData),}}/>
 
-
-      
         <div style={{height:"10vh"}}></div>
             <Scrolldiv isClicked={isClicked} setClick={setClick} scenes={scenes}/>
             <Textdiv isNavbarWide={isClicked} play={play}/>

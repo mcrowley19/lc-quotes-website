@@ -14,69 +14,21 @@ import CreditsPage from "./Credits"
 
 function Nbar(){
   return(
-    <div
-    style={{
-      background:"#1f324a", 
-      paddingLeft: "1%", 
-      height: "8vh", 
-      width: "100%",
-      maxWidth: "100%",
-      display:"flex",
-      alignItems:"center"
-
-      }}>
+    <div className="navbar">
       <a href="/" className="navText">
-        <img
-        style={{marginTop:"3.5px",marginRight:"5px",display:"block"}}
+        <img className="navImage"
           alt=""
           src="\chat.png"
-          width="30px"
-          height="30px"
         />
         LearnQuotes
       </a>
-      <a href="/credits" className="navText" style={{marginLeft:"auto",marginRight:"25px",fontSize:"20px"}}>Icon credits</a>
+      <a href="/credits" className="navText" style={{marginLeft:"auto",marginRight:"25px"}}>Icon credits</a>
     </div>
   );
   }
 
 function App() {
   const [quoteList, setQuoteList] = useState([]);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize(); 
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  if (isMobile) {
-    return (
-      <div
-        style={{
-          paddingTop:"20vh",
-          textAlign: "center",
-          color:"white",
-          fontSize:"20px",
-          fontWeight:"bold",
-          margin:"auto"
-        }}>
-          <div style={{display:"block",margin:"auto",fontSize:"40px"}}>
-        <img src="chat.png" style={{height:"50px", width:"50px",display:"inline",marginBottom:"10px",marginRight:"10px"}}></img>LearnQuotes
-        </div>
-        <br />
-This app is only available on desktop devices. Please use a larger screen.
-      </div>
-    );
-  }
-
-
-
 
   return (
     <Router>
@@ -107,7 +59,7 @@ This app is only available on desktop devices. Please use a larger screen.
                 quoteList = {quoteList} 
                 setQuoteList = {setQuoteList} 
                 play={<Merchant />} s
-                cenes={<MerchantScenes />} 
+                scenes={<MerchantScenes />} 
                 title={"Edit Quotes - The Merchant of Venice"} 
                 url={"https://learnquotes.com/merchant-of-venice"}/>} />
 

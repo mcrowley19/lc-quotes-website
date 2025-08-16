@@ -1,8 +1,9 @@
-import "./App.css";
+
+import "./gamePage.css";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -90,10 +91,7 @@ function GamePage({quoteList}) {
             setStreak(0)
         }
     }
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate("/edit")
-  };
+
 
     useEffect(() => {
         let ignore = false;
@@ -102,7 +100,7 @@ function GamePage({quoteList}) {
         },[]);
     
     if (quoteList.length < 1) {
-        return <Navigate to="/edit" replace />;}
+        return <Navigate to="/" replace />;}
 
 
 
@@ -143,7 +141,7 @@ function GamePage({quoteList}) {
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                transform: "translate(-50%, -10%)",
+                transform: "translate(-50%, -30%)",
                 color: "#ffffffff",
                 fontWeight: "bold",
 
@@ -155,7 +153,7 @@ function GamePage({quoteList}) {
         </div>}
         {streak === 0 && <div style={{height:"20vh"}}></div>}
         <div style={{height:"10vh"}}></div>
-        <div className="gameqContainer"style = {{height:"40vh"}}>
+        <div style = {{height:"40vh",padding:"30px"}}>
             <h1 className = "noWhitespace"style={{color: quoteColors[colorIndex]}}>{shortQuote}</h1>
              {/* colorIndex is reused here to only show userInput if the user loses*/}
             {colorIndex === 2 && <h1 style={{color:"gray"}}>{userInput}</h1>}
