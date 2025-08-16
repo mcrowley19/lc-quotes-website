@@ -1,0 +1,79 @@
+
+/*Play page*/
+
+.back-button{
+    background-color: transparent; 
+    border: none;
+    display:inline; 
+    float:left;
+    height:10px;
+    width:10px;
+    margin-top:2vh;
+    margin-left: 10px;
+}
+.backArrow{
+  height:70px;
+  width:70px;
+}
+
+
+
+
+
+
+.game-quote{
+    white-space: pre;
+    font-size:32px;
+}
+
+
+
+/*Important is needed to override bootstrap*/
+input{
+  width:60% !important;
+}
+
+.streak{
+  display:flex;
+  height:140px;
+  width:140px;
+  font-size: 60px;
+  margin:auto;
+  align-content: center;
+}
+
+.noWhitespace{
+    white-space: pre;
+}
+@media (max-width: 768px) {
+.streak{
+  height:15vh;
+  width:15vh;
+  font-size: 35px;
+  margin-left:10px;
+  }
+input{
+  width:90% !important;
+}
+.noWhitespace{
+    font-size:15px;
+
+}
+ 
+.back-button{
+  margin-left:0
+}
+.link{
+  font-size:15px;
+  margin-left:-5px;
+  font-size:12px;
+}
+
+
+.backArrow{
+  height:40px;
+  width:40px;
+}
+}
+
+

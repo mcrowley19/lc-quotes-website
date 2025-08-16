@@ -2,14 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./homePage";
 import EditPage from "./editPage"; 
 import GamePage from "./gamePage";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import Macbeth from "./Texts/Macbeth"; 
 import Othello from "./Texts/Othello"; 
 import Merchant from "./Texts/Merchant"; 
 import MacbethScenes from "./Scenes/MacbethScenes"
 import OthelloScenes from "./Scenes/OthelloScenes"
 import MerchantScenes from "./Scenes/MerchantScenes"
-import CreditsPage from "./Credits"
+
 
 
 function Nbar(){
@@ -18,11 +18,10 @@ function Nbar(){
       <a href="/" className="navText">
         <img className="navImage"
           alt=""
-          src="\chat.png"
+          src=".\chat.svg"
         />
         LearnQuotes
       </a>
-      <a href="/credits" className="navText" style={{marginLeft:"auto",marginRight:"25px"}}>Icon credits</a>
     </div>
   );
   }
@@ -35,7 +34,6 @@ function App() {
         <Nbar /> 
         <Routes >
             <Route path ="/" element = {<HomePage />} />
-            <Route path ="/credits" element = {<CreditsPage />} />
             <Route path = "/macbeth" 
               element = {<EditPage 
                 quoteList = {quoteList} 
