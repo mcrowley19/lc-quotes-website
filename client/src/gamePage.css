@@ -16,16 +16,10 @@
   width:70px;
 }
 
-
-
-
-
-
 .game-quote{
     white-space: pre;
     font-size:32px;
 }
-
 
 
 /*Important is needed to override bootstrap*/
@@ -34,7 +28,6 @@ input{
 }
 
 .streak{
-
   height:140px;
   width:140px;
   font-size: 60px;
@@ -47,16 +40,15 @@ input{
 }
 @media (max-width: 768px) {
 .streak{
-  height:15vh;
-  width:15vh;
+  height:100px;
+  width:100px;
   font-size: 35px;
-  margin-left:10px;
   }
 input{
   width:90% !important;
 }
 .noWhitespace{
-    font-size:15px;
+    font-size:30px;
 
 }
  

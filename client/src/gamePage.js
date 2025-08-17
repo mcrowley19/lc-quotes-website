@@ -134,7 +134,7 @@ function GamePage({quoteList}) {
         }}
       />
 
-        <div className="streak"style ={{display: streak >0 ? "inline-block" : "hidden", position:"relative"
+        <div className="streak"style ={{visibility: (streak) >0 ? "visible" : "hidden", position:"relative"
              }}>
             <img src="/flame.svg" style={{  display: "block", width: "100%",height: "auto", }}  onLoad={() => setImageLoaded(true)} alt="Streak flame"></img>
            { imageLoaded === true &&
@@ -151,9 +151,8 @@ function GamePage({quoteList}) {
                 {streak}
             </div>}
         </div>
-        {streak === 0 && <div style={{height:"20vh"}}></div>}
-        <div style={{height:"10vh"}}></div>
-        <div style = {{height:"40vh",padding:"30px"}}>
+        <div style={{height:"100px"}}></div>
+        <div style = {{height:"250px",padding:"30px"}}>
             <h1 className = "noWhitespace"style={{color: quoteColors[colorIndex]}}>{shortQuote}</h1>
              {/* colorIndex is reused here to only show userInput if the user loses*/}
             {colorIndex === 2 && <h1 style={{color:"gray"}}>{userInput}</h1>}
