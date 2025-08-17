@@ -6,11 +6,13 @@ import { useState } from "react";
 import Macbeth from "./Texts/Macbeth"; 
 import Othello from "./Texts/Othello"; 
 import Merchant from "./Texts/Merchant"; 
+import Twelfth from "./Texts/Twelfth";
+import Hamlet from "./Texts/Hamlet";
 import MacbethScenes from "./Scenes/MacbethScenes"
 import OthelloScenes from "./Scenes/OthelloScenes"
 import MerchantScenes from "./Scenes/MerchantScenes"
-
-
+import TwelfthScenes from "./Scenes/TwelfthScenes"
+import HamletScenes from "./Scenes/HamletScenes"
 
 function Nbar(){
   return(
@@ -59,7 +61,25 @@ function App() {
                 play={<Merchant />} s
                 scenes={<MerchantScenes />} 
                 title={"Edit Quotes - The Merchant of Venice"} 
-                url={"https://learnquotes.com/merchant-of-venice"}/>} />
+                url={"https://learnquotes.com/merchant-of-venice"}/>}/>
+
+            <Route path = "/twelfth-night" 
+              element = {<EditPage 
+                quoteList = {quoteList} 
+                setQuoteList = {setQuoteList} 
+                play={<Twelfth />} s
+                scenes={<TwelfthScenes />} 
+                title={"Edit Quotes - Twelfth Night"} 
+                url={"https://learnquotes.com/twelfth-night"}/>}/>
+
+            <Route path = "/hamlet" 
+              element = {<EditPage 
+                quoteList = {quoteList} 
+                setQuoteList = {setQuoteList} 
+                play={<Hamlet />} s
+                scenes={<HamletScenes />} 
+                title={"Edit Quotes - Hamlet"} 
+                url={"https://learnquotes.com/hamlet"}/>}/>
 
             <Route path ="/play" 
               element = {<GamePage  quoteList = {quoteList}  />} />

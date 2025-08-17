@@ -123,15 +123,15 @@ function Quotesdiv({quoteList, setQuoteList}) {
          {/* This renders a new quote circle for each item in quoteList.*/}
         {/* It gives each quote circle a key corresponding to what index in the list the quote it contains is*/}
           {/*It creates an onDelete function that deletes the bubble"s quote from the list. This is called in the QuoteCircle function when a button is pressed*/}
-        
+    { quoteList.length <1 && 
       <div style={{height:"fit-content",width:"100%",justifyContent:"center",display:"flex",padding:"20px"}}>
-        { quoteList.length <1 && 
+
         <button  onClick= {handleClick} className={`hint-button ${isClicked ? "clickedTooltip": ""}`} data-tooltip="Highlight a quote and click + to add it to the list">
           <h5 className="question-mark"style={{fontSize:"50px",fontWeight:"bold",color:"white"}}>?</h5> 
         </button>
-        }
-        </div>
-      
+  
+      </div>
+    }
         
         
         {quoteList.map((quote, index) => (
@@ -144,6 +144,7 @@ function Quotesdiv({quoteList, setQuoteList}) {
           <AddButton setQuoteList={setQuoteList} quoteList={quoteList}/>
           <PlayButton quoteList={quoteList}/>
         </div>
+
     </div>
   );
 }

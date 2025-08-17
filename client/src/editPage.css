@@ -143,7 +143,6 @@ ul {
 .quote-buttons{
   display:flex;
   align-items:center;
-  height: 17vh;
   margin:auto;
   width:75%;
 }

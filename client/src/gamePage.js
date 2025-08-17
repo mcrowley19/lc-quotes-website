@@ -134,10 +134,7 @@ function GamePage({quoteList}) {
         }}
       />
 
-        {streak > 0 && <div className="streak"style ={{
-            display: "inline-block",
-
-            position:"relative"
+        <div className="streak"style ={{display: streak >0 ? "inline-block" : "hidden", position:"relative"
              }}>
             <img src="/flame.svg" style={{  display: "block", width: "100%",height: "auto", }}  onLoad={() => setImageLoaded(true)} alt="Streak flame"></img>
            { imageLoaded === true &&
@@ -153,7 +150,7 @@ function GamePage({quoteList}) {
             }}>
                 {streak}
             </div>}
-        </div>}
+        </div>
         {streak === 0 && <div style={{height:"20vh"}}></div>}
         <div style={{height:"10vh"}}></div>
         <div style = {{height:"40vh",padding:"30px"}}>

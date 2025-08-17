@@ -1,24 +1,21 @@
 .play-card{
   /*This also contains inline styling through react*/
-  width: 18vw;
+  width: 16vw;
   background-size: cover;
   background-position: center;
   border: none;
   border-radius: 30px;
-  height: 60vh;
+  height: 55vh;
   display:flex;
   align-content:center;
 }
 
 .play-text{
   height: 15%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-  border-radius: 30px 30px 0px 0px;
   color:#ffffffff;
   font-size: 35px;
   font-family: MedievalSharp;
-  width:100%;
-  padding:3px;
+  width: 100%;
 }
 
 .carousel-buttons{
@@ -32,10 +29,12 @@
 .homepage-container{
   display: grid; 
   grid-template-areas:
-    "buttonL left center right buttonR";
-  grid-template-columns:1fr 2fr 2fr 2fr 1fr;
+  "a a a a a a a"
+  "buttonL farLeft left center right farRight buttonR";
+  grid-template-rows: 30px 60vh;
+  grid-template-columns:220px 160px 200px 220px 200px 160px 220px;
   padding-top: 10vh;
-  width:70%;
+  width:100%;
   margin:auto;
   place-items:center;
   justify-content: center;
@@ -50,8 +49,91 @@
   .mobile-warning{
     display:none;
   }
+
+
+
+  .leftCard{
+    grid-area:left;
+    z-index:2;
+    scale:0.85;
+  }
+  .rightCard{
+    grid-area:right;
+    z-index:2;
+    scale:0.85;
+  }
+.farRightCard{
+  grid-area:farRight;
+  z-index:1;
+  scale:0.7;
+}
+
+.farLeftCard{
+  grid-area:farLeft;
+  z-index:1;
+  scale:0.7;
+
+}
+
+
+.farLeftCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  background: linear-gradient(to right, rgba(26, 41, 62, 1), transparent);
+  z-index: 1;
+
+}
+
+.farRightCard::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  background: linear-gradient(to left, rgba(26, 41, 62, 1), transparent);
+  z-index: 1;
+
+}
+
+
+
+.card-bg{
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+
+  .center{
+    grid-area:center;
+    z-index:3;
+  }
 @media (max-width: 768px) {
 
+.farRightCard::before, .farLeftCard::before { 
+  width:70px;
+  border-radius:0px;
+}
+.homepage-container{
+  grid-template-columns:50px 50px 50px 70px 50px 50px 50px;
+  grid-template-rows: 30px 180px;
+}
+.card-bg{
+  border-radius: 15px;
+}
+  
   .mobile-warning{
     display:block;
     width:90vw;
@@ -67,10 +149,10 @@
     width:20px;
   }
   .play-card{
-   height:180px;
+   height:150px;
    width:100px;
    font-size:5px;
-  
+    border-radius: 15px;
   }
 
   .play-text{

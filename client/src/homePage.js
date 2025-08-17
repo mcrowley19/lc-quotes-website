@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 //The card that contains the play name, image and button
-function GameCard({play,image,link,float}) {
+function GameCard({play,image,link,posClass}) {
     const [isClicked, setIsClicked] = useState(false)
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
@@ -17,39 +17,40 @@ function GameCard({play,image,link,float}) {
   };
 
   return (
-    <button
-      onClick= {handleClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className = "play-card"
-      style ={{
-        backgroundImage: isClicked ? `linear-gradient(rgba(0, 0, 0, 0.5)), url(${image})`: `url(${image})`,
-        transform: isHovered ? "translateY(-3px)":"",
-        boxShadow: isHovered ? "0 8px 16px rgba(0, 0, 0, 0.5)":"0 4px 8px rgba(0, 0, 0, 0.2)",
-        filter: (float === "center") ? "none" :"grayscale(100%)",
-        scale: (float === "center") ? 1 : 0.8,
-        justifySelf:"center",
-        gridArea: float}}>
-          <div className="play-text">
-        {play}
-      </div>
-      <div style={{height:"85%"}}></div>
-  
-    </button>
+      <button
+        onClick= {handleClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`play-card ${posClass}`}
+        style ={{
+          position:"relative",
+          transform: isHovered ? "translateY(-3px)":"",
+          boxShadow: isHovered ? "0 8px 16px rgba(0, 0, 0, 0.5)":"0 4px 8px rgba(0, 0, 0, 0.2)",
+          justifySelf:"center",}}>
+          <div className="card-bg"
+            style={{
+            backgroundImage: isClicked ? `linear-gradient(rgba(0, 0, 0, 0.5)), url(${image})` : `url(${image})`,
+            filter: (posClass === "center") ? "" : "grayscale(100%)",
+            }}/>
+            <div className="play-text" style={{ position: "relative", zIndex: 2 }}>
+          {play}
+        </div>
+        <div style={{height:"85%",position: "relative", zIndex: 2 }}></div>
 
+    </button>
   );
 }
 
 //The main function of the web page
 function HomePage() {
-  const [cardsPos,setCardsPos] = useState(["left","center","right"])
+  const [cardsPos,setCardsPos] = useState(["farLeftCard","leftCard","center","rightCard","farRightCard"])
 
   const rightClick = () =>{
-    setCardsPos(prev => [prev[1],prev[2],prev[0]])
+    setCardsPos(prev => [prev[1],prev[2],prev[3],prev[4],prev[0]])
   }
 
   const leftClick = () => {
-    setCardsPos(prev => [prev[2],prev[0],prev[1]])
+    setCardsPos(prev => [prev[4],prev[0],prev[1],prev[2],prev[3]])
   }
 
   const articleStructuredData = [{
@@ -68,27 +69,29 @@ function HomePage() {
   }];
   return (
 <div>
+
+
+  <title>LearnQuotes</title>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(articleStructuredData),
+    }}
+  />
+
     <div className="homepage-container">
-
-      <title>LearnQuotes</title>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleStructuredData),
-        }}
-      />
-
-
+        <h1 style={{color:"white", gridArea:"a",textAlign:"left", justifySelf:"start"}}>Shakespeare</h1>
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
-        <img src="/arrow.svg" className="carousel-arrows" alt= "Move selection left"></img>
+        <img src="/arrow.svg" className="carousel-arrows" alt= "Move selection left" />
       </button>
-      <GameCard image="othello.jpg" play="Othello" float= {cardsPos[0]} link="/othello"/>
-      <GameCard image="macbeth.jpg" play="Macbeth" float= {cardsPos[1]} link="/macbeth"/>
-      <GameCard image="merchant.jpg" play="The Merchant of Venice" float= {cardsPos[2]} link="/merchant-of-venice"/>
+      <GameCard image="othello.jpg" play="Othello" posClass= {cardsPos[0]} link="/othello"/>
+      <GameCard image="hamlet.jpg" play="Hamlet" posClass= {cardsPos[1]} link="/hamlet"/>
+      <GameCard image="macbeth.jpg" play="Macbeth" posClass= {cardsPos[2]} link="/macbeth"/>
+      <GameCard image="merchant.jpg" play="The Merchant of Venice" posClass= {cardsPos[3]} link="/merchant-of-venice"/>
+      <GameCard image="twelfth.jpg" play="Twelfth Night" posClass= {cardsPos[4]} link="/twelfth-night"/>
       <button onClick={rightClick}  style={{gridArea:"buttonR"}} className="carousel-buttons">
-          <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left"></img>
+          <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left" />
       </button>
-
     </div>
 
       <div className="mobile-warning">
