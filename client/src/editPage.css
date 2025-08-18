@@ -23,7 +23,7 @@
 .play-text-card{
   padding:40px;
   background-color: white;
-  height: 92vh;
+  height: 92dvh;
   overflow-y: auto;
   border: none;
   border-radius: 0px;
@@ -48,7 +48,7 @@ p{
 .scroll-card{
   /*Also contains react inline styling*/
   background:white;
-  height: 92vh;
+  height: 92dvh;
   overflow-y: auto;
   border-radius: 0px;
   border-right: none;
@@ -91,7 +91,7 @@ ul {
 }
 .link{
   text-decoration: none;
-  font-size: 3vh;
+  font-size: 3dvh;
   color:#4682b4;
 }
 
@@ -129,14 +129,14 @@ ul {
   width: 30vw;
   display: inline-block;
   background: hsl(214, 40%, 10%);
-  height: 92vh;
+  height: 92dvh;
 
 }
 
 
 
 .quote-bubbles-card{
-  height: 75vh;
+  height: 75dvh;
   overflow-x: hidden;
 }
 
@@ -149,7 +149,7 @@ ul {
 
 .editpage-div{
   display: flex; 
-  height: 92vh;
+  height: 92dvh;
   min-width:100vw;
   overflow-y: hidden
 }
@@ -157,6 +157,10 @@ ul {
 
 /*Changes for mobile devices*/
 @media (max-width: 768px) {
+  
+.quote-bubbles-card{
+  height: 65dvh;
+}
   .question-mark{
     font-size:30px !important;
   }
@@ -170,11 +174,11 @@ ul {
     font-size:15px !important;
   }
   .play-text-card{
-    height:94vh;
+    height:94dvh;
     padding-left:20px;
   }
 .editpage-div{
-  height:94vh;
+  height:94dvh;
 }
   .quote-circle-green-half{
     padding:3px;
@@ -223,7 +227,7 @@ ul {
 }
 
 .scroll-card{
-  height:94vh;
+  height:94dvh;
 }
 .scroll-card.expanded {
     width: 20vw;
@@ -246,7 +250,7 @@ ul {
 
 .quotes-container{
   width: 30vw;
-  height:94vh;
+  height:94dvh;
 }
 
 

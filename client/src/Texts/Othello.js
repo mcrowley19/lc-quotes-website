@@ -4,6 +4,7 @@ function Othello() {
   return (
 <div>
     <h1 className="playHeading">Othello</h1>
+    <br />
     <h3>ACT I</h3>
     <h3 id="1_1">SCENE I. Venice. A street.</h3>
     <p></p><blockquote>

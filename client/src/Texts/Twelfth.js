@@ -2,7 +2,7 @@ function Twelfth() {
   return (
 <div>
     <h1 className="playHeading">Twelfth Night</h1>
-
+    <br />
 <h3>ACT I</h3>
 <h3 id="1_1">SCENE I. DUKE ORSINO's palace.</h3>
 <p></p><blockquote>

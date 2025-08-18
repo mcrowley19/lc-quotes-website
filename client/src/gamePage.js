@@ -37,41 +37,41 @@ function GamePage({quoteList}) {
             while (correctQuotes.includes(tempRandIndex) && correctQuotes.length < quoteList.length){
                 tempRandIndex = (Math.floor(Math.random() * (quoteList.length)))
             }
+            setRandomIndex(tempRandIndex)
 
             let tempQuote = quoteList[tempRandIndex].text
-            setRandomIndex(tempRandIndex)
+            tempQuote = tempQuote.replace(/[\r\n]+/gm, " ");
+            tempQuote = tempQuote.split("")
             //Tabs and spaces are removed from the tempQuote
-
+            
 
             //This chooses the number of characters to be removed
             const removedChars = Math.floor(Math.random() * (tempQuote.length-(tempQuote.length*0.3))+2);
             //This randomly decides if the characters will be removed from the front or the back of the string
             const backOrForward = Math.floor(Math.random() * (2));
-            let underscores = ""
 
             if (backOrForward === 0){
-                for (let i = 0; i < removedChars; i++){
-                    if (tempQuote[i] === " "){
-                        underscores += "   ";
+                let underscores = tempQuote.map(function(currentValue,index){
+                    if (index > removedChars){
+                        return currentValue;
                     }
-                    else{
-                        underscores +="_ ";
-                    }
+                    if (currentValue !== " "){
+                        return "_ "}
+                    return "   ";
+                })
+                setShortQuote(underscores)
                 }
-                setShortQuote(underscores + tempQuote.slice(removedChars))
-            }
             else{
-                for (let i = (tempQuote.length - removedChars); i < tempQuote.length; i++){
-                    if (tempQuote[i] === " "){
-                        underscores += "   " ;
+             let underscores = tempQuote.map(function(currentValue,index){
+                    if (index < removedChars){
+                        return currentValue;
                     }
-                    else{
-                        underscores +="_ " ;
-                    }
-                }
-                setShortQuote(tempQuote.slice(0,(tempQuote.length - removedChars)) + underscores)
+                    if (currentValue !== " "){
+                        return "_ "}
+                    return "   ";
+                        })
+                setShortQuote(underscores)
             }
-            tempQuote = tempQuote.replace(/\s+/g, " ").trim()
 
         }
     }
@@ -85,6 +85,7 @@ function GamePage({quoteList}) {
         if ( userAnswer === currentQuote.toLowerCase()){
             audio.play();
             setCorrectQuotes(prev => [...prev,randomIndex])
+            setShortQuote(currentQuote)
             setColorIndex(1)
             setUserInput("")
             setTimeout(() => setColorIndex(0), 500); 
@@ -124,7 +125,13 @@ function GamePage({quoteList}) {
 
   return (
     <div align="center" 
-    style={{boxShadow: colorIndex === 1 ?"inset 0 0 30px rgba(55, 192, 55, 0.4), 0 0 50px rgba(55, 192, 55, 0.6)": "",height:"92vh",margin:"5px"}}>
+    style={{
+        boxShadow: colorIndex === 1 ?"  inset 0 0 100px rgba(55, 192, 55, 0.15), 0 0 150px rgba(55, 192, 55, 0.2)": "",
+        height:"92dvh",
+        overflowY:"none",
+        margin:"5px"
+    }}>
+
         <title>Test Yourself</title>
 
    <script
@@ -152,7 +159,7 @@ function GamePage({quoteList}) {
             </div>}
         </div>
         <div style={{height:"100px"}}></div>
-        <div style = {{height:"250px",padding:"30px"}}>
+        <div  className="randomq-div">
             <h1 className = "noWhitespace"style={{color: quoteColors[colorIndex]}}>{shortQuote}</h1>
              {/* colorIndex is reused here to only show userInput if the user loses*/}
             {colorIndex === 2 && <h1 style={{color:"gray"}}>{userInput}</h1>}

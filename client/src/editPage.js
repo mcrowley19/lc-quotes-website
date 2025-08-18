@@ -1,7 +1,7 @@
 
 
 import "./editPage.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -34,6 +34,16 @@ function PlayButton({quoteList}) {
 
 function AddButton({quoteList, setQuoteList}) {
   const [isClicked, setClick] = useState(false);
+  const [maxLen, setMaxLen] = useState(window.innerWidth <= 768 ? 50 : 75);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMaxLen(window.innerWidth <= 768 ? 50 : 75);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   //When the button is clicked it changes the button color and adds the highlighted text to the list
   const handleClick = () => {
     setClick(true);
@@ -41,8 +51,8 @@ function AddButton({quoteList, setQuoteList}) {
     const selectedText = window.getSelection().toString().trim();
     const spacelessText = selectedText.replace(/\s/g, '');
     //Sets the quote list to the current quote list with the new quote added
-    if (spacelessText.length <5 | spacelessText.length >75){
-      alert("Please highlight a quote that is between 5 and 75 characters long.");
+    if (spacelessText.length <5 || spacelessText.length >maxLen){
+      alert(`Please highlight a quote that is between 5 and ${maxLen} characters long.`);
       }
     else {
         setQuoteList([...quoteList, {id: uuidv4(),"text": selectedText}]);
@@ -117,7 +127,6 @@ function Quotesdiv({quoteList, setQuoteList}) {
   return (
     //The main card
     <div className="quotes-container">
-      {/* The card containing the explanation at the top of the page */}
         {/*The card that contains the quotes*/}
       <div className="quote-bubbles-card">
          {/* This renders a new quote circle for each item in quoteList.*/}
@@ -144,7 +153,6 @@ function Quotesdiv({quoteList, setQuoteList}) {
           <AddButton setQuoteList={setQuoteList} quoteList={quoteList}/>
           <PlayButton quoteList={quoteList}/>
         </div>
-
     </div>
   );
 }

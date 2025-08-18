@@ -37,8 +37,16 @@ input{
 
 .noWhitespace{
     white-space: pre;
+    width:100%;
+    font-size:30px;      
+}
+.randomq-div{
+  height:250px;
 }
 @media (max-width: 768px) {
+  .randomq-div{
+  height:210px;
+}
 .streak{
   height:100px;
   width:100px;
@@ -48,7 +56,8 @@ input{
   width:90% !important;
 }
 .noWhitespace{
-    font-size:30px;
+    font-size:11px;
+
 
 }
  

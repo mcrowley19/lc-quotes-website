@@ -2,6 +2,7 @@ function Hamlet() {
   return (
 <div>
     <h1 className="playHeading">Hamlet</h1>
+    <br />
 <h3>ACT I</h3>
 <h3 id="1_1">SCENE I. Elsinore. A platform before the castle.</h3>
 <p></p><blockquote>
