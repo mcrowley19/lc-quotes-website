@@ -94,9 +94,6 @@ function HomePage() {
       </button>
     </div>
 
-      <div className="mobile-warning">
-      This website was designed for desktop use and may not work as intended on mobile
-      </div>
 </div>
   );
 }

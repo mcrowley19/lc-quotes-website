@@ -173,7 +173,7 @@ function EditPage({ play, scenes,title,url}) {
 
   };
 
-  const [quoteList, setQuoteList] = useState(JSON.parse(localStorage.getItem('quoteList')))
+  const [quoteList, setQuoteList] = useState(JSON.parse(localStorage.getItem("quoteList" || "[]")))
 
   useEffect(() => {
     localStorage.setItem('quoteList', JSON.stringify(quoteList));
