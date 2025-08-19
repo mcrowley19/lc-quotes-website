@@ -126,7 +126,7 @@ function GamePage({quoteList}) {
   return (
     <div align="center" 
     style={{
-        boxShadow: colorIndex === 1 ?"  inset 0 0 100px rgba(55, 192, 55, 0.15), 0 0 150px rgba(55, 192, 55, 0.2)": "",
+        boxShadow: colorIndex === 1 ?"  inset 0 0 75px rgba(34, 115, 248, 0.7), 0 0 150px rgba(34, 115, 248, 0.4)": "",
         height:"92dvh",
         overflowY:"none",
         margin:"5px"
@@ -140,20 +140,19 @@ function GamePage({quoteList}) {
           __html: JSON.stringify(articleStructuredData),
         }}
       />
-
+        <br />
         <div className="streak"style ={{visibility: (streak) >0 ? "visible" : "hidden", position:"relative"
              }}>
-            <img src="/flame.svg" style={{  display: "block", width: "100%",height: "auto", }}  onLoad={() => setImageLoaded(true)} alt="Streak flame"></img>
+            <img src="/flame2.svg" style={{  display: "block", width: "100%",height: "auto", }}  onLoad={() => setImageLoaded(true)} alt="Streak flame"></img>
            { imageLoaded === true &&
             <div style={{
                 position: "absolute",
-                top: "50%",
+                top: "55%",
                 left: "50%",
                 transform: "translate(-50%, -30%)",
                 color: "#ffffffff",
                 fontWeight: "bold",
-                fontFamily: "Arial, sans-serif",
-                textShadow: "-1px -1px 0 black, 0 -1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px  1px 0 black, 0 1px 0 black,  -1px  1px 0 black, -1px  0 0 black"
+                fontFamily: "Arial, sans-serif"
             }}>
                 {streak}
             </div>}
