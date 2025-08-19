@@ -34,7 +34,7 @@ function PlayButton({quoteList}) {
 
 function AddButton({quoteList, setQuoteList}) {
   const [isClicked, setClick] = useState(false);
-  const [maxLen, setMaxLen] = useState(window.innerWidth <= 768 ? 50 : 75);
+  const [maxLen, setMaxLen] = useState(window.innerWidth <= 768 ? 40 : 75);
 
   useEffect(() => {
     const handleResize = () => {

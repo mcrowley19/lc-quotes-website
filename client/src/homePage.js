@@ -80,7 +80,7 @@ function HomePage() {
   />
 
     <div className="homepage-container">
-        <h1 style={{color:"white", gridArea:"a",textAlign:"left", justifySelf:"start",marginLeft:"20px"}}>Shakespeare</h1>
+        <h1 style={{color:"white", gridArea:"a",textAlign:"left", justifySelf:"start",marginLeft:"20px",fontWeight:"700"}}>Shakespeare</h1>
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
         <img src="/arrow.svg" className="carousel-arrows" alt= "Move selection left" />
       </button>
