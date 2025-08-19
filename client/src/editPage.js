@@ -38,7 +38,7 @@ function AddButton({quoteList, setQuoteList}) {
 
   useEffect(() => {
     const handleResize = () => {
-      setMaxLen(window.innerWidth <= 768 ? 50 : 75);
+      setMaxLen(window.innerWidth <= 768 ? 40 : 75);
     };
 
     window.addEventListener("resize", handleResize);
@@ -161,7 +161,7 @@ function Quotesdiv({quoteList, setQuoteList}) {
 
 
 //The main function of the page
-function EditPage({quoteList, setQuoteList, play, scenes,title,url}) {
+function EditPage({ play, scenes,title,url}) {
 
   const articleStructuredData = {
     '@context': 'https://schema.org',
@@ -173,7 +173,11 @@ function EditPage({quoteList, setQuoteList, play, scenes,title,url}) {
 
   };
 
+  const [quoteList, setQuoteList] = useState(JSON.parse(localStorage.getItem('quoteList')))
 
+  useEffect(() => {
+    localStorage.setItem('quoteList', JSON.stringify(quoteList));
+  },[quoteList]) 
     const [isClicked, setClick] = useState(false);
   return (
     <div className="editpage-div" >

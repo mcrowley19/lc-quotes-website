@@ -6,12 +6,11 @@ import winSound from "./assets/success.mp3";
 
 
 
-function GamePage({quoteList}) {
+function GamePage() {
     //quote contains a random quote that has been selected from the list.  
     // shortQuote is quote with a certain amount of characters replaced with dashes
 
-    //const [quote, setQuote] = useState("");
-
+    
     const [randomIndex, setRandomIndex] = useState(null);
     const [shortQuote, setShortQuote] = useState("");
     const [userInput, setUserInput] = useState("")
@@ -19,34 +18,41 @@ function GamePage({quoteList}) {
     //colorIndex is used to specify what color in quoteColors the quote that is displayed should change to.
     const quoteColors = ["white","#42a845","#a84242ff"]
     const [colorIndex,setColorIndex] = useState(0) 
-    const [correctQuotes,setCorrectQuotes] = useState([])
+    //This acts as a persistent record of the correct quotes that isn't wiped on rerender, unlike tempCorrectList
+    const [correctList,setCorrectList] = useState([])
     const [streak,setStreak] = useState(0)
 
     //This ensures the streak number does not load before the image behind it
-      const [imageLoaded, setImageLoaded] = useState(false);
-    //This function assigns the values to quote and shortQuote
-    const createQuote = function(){
-        if (quoteList.length > 0){
-    
-            //This code creates tempQuote as a random quote in the list. 
-            // If it is in the list the user has already answered it correctly. It picks a new one unless the correct list is equal to the quoteList
-            let tempRandIndex = (Math.floor(Math.random() * (quoteList.length)))
-            
+    const [imageLoaded, setImageLoaded] = useState(false);
 
-            console.log('tempRandIndex:', tempRandIndex);
-            while (correctQuotes.includes(tempRandIndex) && correctQuotes.length < quoteList.length){
-                tempRandIndex = (Math.floor(Math.random() * (quoteList.length)))
+    let quoteList = JSON.parse(localStorage.getItem('quoteList'));
+    //This function assigns the values to quote and shortQuote
+    const createQuote = function(tempCorrectList){
+        if (quoteList.length > 0){
+            //These lines of code are responsible for choosing a random quote from quoteList
+            //tempRandIndex refers to the index of the chosen quote in quoteList
+            let tempRandIndex = (Math.floor(Math.random() * (quoteList.length)))
+            //correctList is an array containing indexes of quotes from quoteList that the user has answered correctly
+            while (tempCorrectList.includes(tempRandIndex)){
+                if (tempCorrectList.length < quoteList.length){
+                    tempRandIndex = (Math.floor(Math.random() * (quoteList.length)))}
+                else{
+                    tempCorrectList = []
+                    setCorrectList([])
+                }
             }
             setRandomIndex(tempRandIndex)
 
+
             let tempQuote = quoteList[tempRandIndex].text
+            //Tabs and spaces are removed from tempQuote and it is converted to an array so the map function works
             tempQuote = tempQuote.replace(/[\r\n]+/gm, " ");
             tempQuote = tempQuote.split("")
-            //Tabs and spaces are removed from the tempQuote
+
             
 
             //This chooses the number of characters to be removed
-            const removedChars = Math.floor(Math.random() * (tempQuote.length-(tempQuote.length*0.3))+2);
+            const removedChars = Math.floor(Math.random() * (tempQuote.length*0.6-(tempQuote.length*0.3))+2);
             //This randomly decides if the characters will be removed from the front or the back of the string
             const backOrForward = Math.floor(Math.random() * (2));
 
@@ -63,7 +69,7 @@ function GamePage({quoteList}) {
                 }
             else{
              let underscores = tempQuote.map(function(currentValue,index){
-                    if (index < removedChars){
+                    if (index < tempQuote.length - removedChars){
                         return currentValue;
                     }
                     if (currentValue !== " "){
@@ -81,29 +87,29 @@ function GamePage({quoteList}) {
         event.preventDefault();
         const userAnswer = userInput.replace(/\s+/g, " ").trim().toLowerCase()
         const currentQuote = quoteList[randomIndex].text.replace(/\s+/g, " ").trim();
-
+        let tempCorrectList = [...correctList,randomIndex]
+        
         if ( userAnswer === currentQuote.toLowerCase()){
             audio.play();
-            setCorrectQuotes(prev => [...prev,randomIndex])
+            setCorrectList(tempCorrectList)
             setShortQuote(currentQuote)
             setColorIndex(1)
             setUserInput("")
             setTimeout(() => setColorIndex(0), 500); 
-            setTimeout(() => createQuote(), 500); 
+            setTimeout(() => createQuote(tempCorrectList), 500); 
             setStreak(prev => prev +1)
-
         }
         else{
             setColorIndex(2)
             setShortQuote(currentQuote)
             setTimeout(() => setColorIndex(0), 2000); 
-            setTimeout(() => createQuote(), 2000); 
+            setTimeout(() => createQuote(tempCorrectList), 2000); 
             setTimeout(() => setUserInput(""), 2000); 
             setStreak(0)
         }
     }
     useEffect(() => {
-        createQuote()
+        createQuote([])
     }, []);
 
     if (quoteList.length < 1) {

@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./homePage";
 import EditPage from "./editPage"; 
 import GamePage from "./gamePage";
-import { useState } from "react";
 import Macbeth from "./Texts/Macbeth"; 
 import Othello from "./Texts/Othello"; 
 import Merchant from "./Texts/Merchant"; 
@@ -29,7 +28,7 @@ function Nbar(){
   }
 
 function App() {
-  const [quoteList, setQuoteList] = useState([]);
+
 
   return (
     <Router>
@@ -38,8 +37,6 @@ function App() {
             <Route path ="/" element = {<HomePage />} />
             <Route path = "/macbeth" 
               element = {<EditPage 
-                quoteList = {quoteList} 
-                setQuoteList = {setQuoteList} 
                 play={<Macbeth />} 
                 scenes={<MacbethScenes />} 
                 title={"Edit Quotes - Macbeth"}
@@ -47,17 +44,13 @@ function App() {
 
             <Route path = "/othello" 
               element = {<EditPage 
-                quoteList = {quoteList} 
-                setQuoteList = {setQuoteList} 
                 play={<Othello />} 
                 scenes={<OthelloScenes />} 
                 title={"Edit Quotes - Othello"}
                 url={"https://learnquotes.com/othello"}/>} />
 
             <Route path = "/merchant-of-venice" 
-              element = {<EditPage 
-                quoteList = {quoteList} 
-                setQuoteList = {setQuoteList} 
+              element = {<EditPage  
                 play={<Merchant />} s
                 scenes={<MerchantScenes />} 
                 title={"Edit Quotes - The Merchant of Venice"} 
@@ -65,8 +58,6 @@ function App() {
 
             <Route path = "/twelfth-night" 
               element = {<EditPage 
-                quoteList = {quoteList} 
-                setQuoteList = {setQuoteList} 
                 play={<Twelfth />} s
                 scenes={<TwelfthScenes />} 
                 title={"Edit Quotes - Twelfth Night"} 
@@ -74,15 +65,13 @@ function App() {
 
             <Route path = "/hamlet" 
               element = {<EditPage 
-                quoteList = {quoteList} 
-                setQuoteList = {setQuoteList} 
                 play={<Hamlet />} s
                 scenes={<HamletScenes />} 
                 title={"Edit Quotes - Hamlet"} 
                 url={"https://learnquotes.com/hamlet"}/>}/>
 
             <Route path ="/play" 
-              element = {<GamePage  quoteList = {quoteList}  />} />
+              element = {<GamePage  />} />
         </Routes>
     </Router>
   );
