@@ -176,6 +176,7 @@ ul {
   .play-text-card{
     height:94dvh;
     padding-left:20px;
+    padding-right:5px;
   }
 .editpage-div{
   height:94dvh;
@@ -249,7 +250,7 @@ ul {
 
 
 .quotes-container{
-  width: 30vw;
+  width: 35dvw;
   height:94dvh;
 }
 
