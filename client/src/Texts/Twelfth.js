@@ -1,6 +1,6 @@
 function Twelfth() {
   return (
-<div>
+<div className="play">
     <h1 className="playHeading">Twelfth Night</h1>
     <br />
 <h3>ACT I</h3>

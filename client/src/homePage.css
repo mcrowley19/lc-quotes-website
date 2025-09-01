@@ -1,11 +1,11 @@
 .play-card{
   /*This also contains inline styling through react*/
-  width: 16vw;
+  width: clamp(230px, 18vw, 400px);
   background-size: cover;
   background-position: center;
   border: none;
   border-radius: 30px;
-  height: 55vh;
+  height: clamp(100px, 55vh, 400px);
   display:flex;
   align-content:center;
 }

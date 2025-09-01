@@ -2,7 +2,7 @@
 
 function Merchant() {
   return (
-<div>
+<div className = "play">
   <h1 className="playHeading"> The Merchant of Venice</h1>
     <br />
     <h3>ACT I</h3>

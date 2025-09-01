@@ -2,7 +2,7 @@
 
 function Othello() {
   return (
-<div>
+<div className="play"> 
     <h1 className="playHeading">Othello</h1>
     <br />
     <h3>ACT I</h3>

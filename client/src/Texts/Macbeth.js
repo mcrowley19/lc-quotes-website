@@ -2,7 +2,7 @@
 
 function Macbeth() {
   return (
-<div>
+<div className="play">
     <h1 className="playHeading">Macbeth</h1>
     <br />
     <h3>ACT I</h3>

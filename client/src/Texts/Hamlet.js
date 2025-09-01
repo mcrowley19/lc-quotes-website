@@ -1,6 +1,6 @@
 function Hamlet() {
   return (
-<div>
+<div className="play">
     <h1 className="playHeading">Hamlet</h1>
     <br />
 <h3>ACT I</h3>
