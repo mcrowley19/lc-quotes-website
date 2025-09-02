@@ -32,7 +32,7 @@ function PlayButton({quoteList}) {
 
 
 
-function AddButton({quoteList, setQuoteList}) {
+function AddButton({quoteList, setQuoteList,selectedText}) {
   const [isClicked, setClick] = useState(false);
   const [maxLen, setMaxLen] = useState(window.innerWidth <= 768 ? 40 : 75);
 
@@ -48,7 +48,7 @@ function AddButton({quoteList, setQuoteList}) {
   const handleClick = () => {
     setClick(true);
     setTimeout(() => setClick(false), 300); 
-    const selectedText = window.getSelection().toString().trim();
+    selectedText = selectedText.trim();
     const spacelessText = selectedText.replace(/\s/g, '');
     //Sets the quote list to the current quote list with the new quote added
     if (spacelessText.length <5 || spacelessText.length >maxLen){
@@ -66,7 +66,16 @@ function AddButton({quoteList, setQuoteList}) {
 }
 
 
-function Textdiv({play}) {
+function Textdiv({play, selectedText, setSelectedText}) {
+
+document.addEventListener('selectionchange', function() {
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        setSelectedText(selection.toString()); 
+    } else {
+        selectedText = ''; 
+    }
+});
   return (
     <div className="play-text-card">
         {play}
@@ -113,7 +122,7 @@ function QuoteCircle({quote, onDelete}) {
 }
 
 //Component for the right most card that contains all added quotes alongside the play and edit buttons
-function Quotesdiv({quoteList, setQuoteList}) {
+function Quotesdiv({quoteList, setQuoteList,selectedText}) {
   //The list containing all the quotes added by the user and a way to edit it
 
   const [isClicked,setClicked] = useState(false)
@@ -150,7 +159,7 @@ function Quotesdiv({quoteList, setQuoteList}) {
         </div>
         {/*The card that contains the play and edit buttons*/}
         <div className = 'quote-buttons'>
-          <AddButton setQuoteList={setQuoteList} quoteList={quoteList}/>
+          <AddButton setQuoteList={setQuoteList} quoteList={quoteList} selectedText = {selectedText}/>
           <PlayButton quoteList={quoteList}/>
         </div>
     </div>
@@ -162,7 +171,7 @@ function Quotesdiv({quoteList, setQuoteList}) {
 
 //The main function of the page
 function EditPage({ play, scenes,title,url}) {
-
+  const [selectedText, setSelectedText] = useState('')
   const articleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Play',
@@ -189,8 +198,8 @@ function EditPage({ play, scenes,title,url}) {
 
         <div style={{height:"10vh"}}></div>
             <Scrolldiv isClicked={isClicked} setClick={setClick} scenes={scenes}/>
-            <Textdiv isNavbarWide={isClicked} play={play}/>
-            <Quotesdiv quoteList={quoteList} setQuoteList={setQuoteList} />
+            <Textdiv isNavbarWide={isClicked} play={play} selectedText={selectedText} setSelectedText = {setSelectedText}/>
+            <Quotesdiv quoteList={quoteList} setQuoteList={setQuoteList} selectedText = {selectedText}/>
     </div>
   );
 }
