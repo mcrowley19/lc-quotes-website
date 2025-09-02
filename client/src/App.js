@@ -19,7 +19,7 @@ function Nbar(){
       <a href="/" className="navText">
         <img className="navImage"
           alt=""
-          src=".\chat.svg"
+          src="quote-svgrepo-com(1).svg"
         />
         LearnQuotes
       </a>
