@@ -1,7 +1,7 @@
 function Romeo() {
   return (
     <div className="play">
- <h1 className="playHeading">Othello</h1>
+ <h1 className="playHeading">Romeo and Juliet</h1>
 <h3>ACT I</h3>
 <h3>PROLOGUE</h3>
 <blockquote>
