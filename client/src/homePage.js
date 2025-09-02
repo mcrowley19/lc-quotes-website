@@ -43,14 +43,14 @@ function GameCard({play,image,link,posClass}) {
 
 //The main function of the web page
 function HomePage() {
-  const [cardsPos,setCardsPos] = useState(["farLeftCard","leftCard","center","rightCard","farRightCard"])
+  const [cardsPos,setCardsPos] = useState(["hidden","farLeftCard","leftCard","center","rightCard","farRightCard"])
 
   const rightClick = () =>{
-    setCardsPos(prev => [prev[1],prev[2],prev[3],prev[4],prev[0]])
+    setCardsPos(prev => [prev[1],prev[2],prev[3],prev[4],prev[5],prev[0]])
   }
 
   const leftClick = () => {
-    setCardsPos(prev => [prev[4],prev[0],prev[1],prev[2],prev[3]])
+    setCardsPos(prev => [prev[5],prev[0],prev[1],prev[2],prev[3],prev[4]])
   }
 
   const articleStructuredData = [{
@@ -82,13 +82,14 @@ function HomePage() {
     <div className="homepage-container">
         <h1 style={{color:"white", gridArea:"a",textAlign:"left", justifySelf:"start",marginLeft:"20px",fontWeight:"700"}}>Shakespeare</h1>
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
-        <img src="/arrow.svg" className="carousel-arrows" alt= "Move selection left" />
+        <img src="/arrow.svg" style = {{transfrom:"rotate(90deg)"}}className="carousel-arrows" alt= "Move selection left" />
       </button>
-      <GameCard image="othello.jpg" play="Othello" posClass= {cardsPos[0]} link="/othello"/>
-      <GameCard image="hamlet.jpg" play="Hamlet" posClass= {cardsPos[1]} link="/hamlet"/>
-      <GameCard image="macbeth.jpg" play="Macbeth" posClass= {cardsPos[2]} link="/macbeth"/>
-      <GameCard image="merchant.jpg" play="The Merchant of Venice" posClass= {cardsPos[3]} link="/merchant-of-venice"/>
-      <GameCard image="twelfth.jpg" play="Twelfth Night" posClass= {cardsPos[4]} link="/twelfth-night"/>
+      <GameCard image="romeo.jpg" play="Romeo and Juliet" posClass= {cardsPos[0]} link="/romeo-and-juliet"/>
+      <GameCard image="othello.jpg" play="Othello" posClass= {cardsPos[1]} link="/othello"/>
+      <GameCard image="hamlet.jpg" play="Hamlet" posClass= {cardsPos[2]} link="/hamlet"/>
+      <GameCard image="macbeth.jpg" play="Macbeth" posClass= {cardsPos[3]} link="/macbeth"/>
+      <GameCard image="merchant.jpg" play="The Merchant of Venice" posClass= {cardsPos[4]} link="/merchant-of-venice"/>
+      <GameCard image="twelfth.jpg" play="Twelfth Night" posClass= {cardsPos[5]} link="/twelfth-night"/>
       <button onClick={rightClick}  style={{gridArea:"buttonR"}} className="carousel-buttons">
           <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left" />
       </button>

@@ -7,11 +7,14 @@ import Othello from "./Texts/Othello";
 import Merchant from "./Texts/Merchant"; 
 import Twelfth from "./Texts/Twelfth";
 import Hamlet from "./Texts/Hamlet";
+import Romeo from "./Texts/Romeo";
+
 import MacbethScenes from "./Scenes/MacbethScenes"
 import OthelloScenes from "./Scenes/OthelloScenes"
 import MerchantScenes from "./Scenes/MerchantScenes"
 import TwelfthScenes from "./Scenes/TwelfthScenes"
 import HamletScenes from "./Scenes/HamletScenes"
+import RomeoScenes from "./Scenes/RomeoScenes";
 
 function Nbar(){
   return(
@@ -69,6 +72,14 @@ function App() {
                 scenes={<HamletScenes />} 
                 title={"Edit Quotes - Hamlet"} 
                 url={"https://learnquotes.com/hamlet"}/>}/>
+
+
+            <Route path = "/romeo-and-juliet" 
+              element = {<EditPage 
+                play={<Romeo />} s
+                scenes={<RomeoScenes />} 
+                title={"Edit Quotes - Romeo and Juliet"} 
+                url={"https://learnquotes.com/romeo-and-juliet"}/>}/>
 
             <Route path ="/play" 
               element = {<GamePage  />} />
