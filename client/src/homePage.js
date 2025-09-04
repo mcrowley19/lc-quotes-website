@@ -82,7 +82,7 @@ function HomePage() {
     <div className="homepage-container">
         <h1 style={{color:"white", gridArea:"a",textAlign:"left", justifySelf:"start",marginLeft:"20px",fontWeight:"700"}}>Shakespeare</h1>
       <button onClick={leftClick} style={{gridArea:"buttonL"}} className="carousel-buttons">  
-        <img src="/arrow.svg" style = {{transfrom:"rotate(90deg)"}}className="carousel-arrows" alt= "Move selection left" />
+        <img src="/forwardArrow.svg" style = {{transform:"rotate(90deg)"}}className="carousel-arrows" alt= "Move selection left" />
       </button>
       <GameCard image="romeo.jpg" play="Romeo and Juliet" posClass= {cardsPos[0]} link="/romeo-and-juliet"/>
       <GameCard image="othello.jpg" play="Othello" posClass= {cardsPos[1]} link="/othello"/>
@@ -91,7 +91,7 @@ function HomePage() {
       <GameCard image="merchant.jpg" play="The Merchant of Venice" posClass= {cardsPos[4]} link="/merchant-of-venice"/>
       <GameCard image="twelfth.jpg" play="Twelfth Night" posClass= {cardsPos[5]} link="/twelfth-night"/>
       <button onClick={rightClick}  style={{gridArea:"buttonR"}} className="carousel-buttons">
-          <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left" />
+          <img src="/forwardArrow.svg" className="carousel-arrows" alt= "Move selection left" style={{transform:"rotate(270deg)"}}/>
       </button>
     </div>
 
