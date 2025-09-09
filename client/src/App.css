@@ -9,14 +9,20 @@ background: linear-gradient(to top, #243B55, #141E30); /* W3C, IE 10+/ Edge, Fir
 background-attachment: fixed;
 
 }
-
+p{
+  font-size:20px;
+}
 @font-face {
   font-family: 'MedievalSharp';
     src: url('./assets/fonts/MedievalSharp-Regular.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
-
+ul {
+  list-style-type: none;
+  /*important needed to override bootstrap*/
+  padding: 0px !important;
+}
 .playHeading{
   width:fit-content;
   margin:auto;

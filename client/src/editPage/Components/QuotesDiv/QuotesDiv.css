@@ -1,0 +1,207 @@
+
+
+
+
+
+.hint-button{
+  background: hsl(214, 40%, 40%);
+  border:none;
+  border-radius:50%;
+  height:70px;
+  width:70px;
+  display:inline-block;
+  
+}
+
+
+
+
+
+.list-container {
+  width:60%;
+  margin:auto;
+}
+
+
+.link{
+  text-decoration: none;
+  font-size: 3dvh;
+  color:#4682b4;
+}
+
+
+.quotes-container{
+  width: 30vw;
+  display: inline-block;
+  background: hsl(214, 40%, 10%);
+  height: 92dvh;
+
+}
+
+
+
+.quote-bubbles-card{
+  height: 75dvh;
+  overflow-x: hidden;
+}
+
+.quote-buttons{
+  display:flex;
+  align-items:center;
+  margin:auto;
+  width:75%;
+}
+
+
+[data-tooltip] {
+  position: relative;
+
+}
+
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+  top: calc(100% + 5px);
+  bottom: auto;
+}
+
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  width: max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: rgba(59, 72, 80, 0.9);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, 5px) scale(0.5);
+}
+
+/* Tooltip arrow */
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: 5px 5px 0px 5px; 
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s; /* If the mouse leaves the element, 
+                              the transition effects for the 
+                              tooltip arrow are "turned off" */
+  transform-origin: top;   /* Orientation setting for the
+                              slide-down effect */
+  transform: translateX(-50%) scaleY(0);
+  border-width: 0px 5px 5px 5px;
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}
+
+
+@media (max-width: 768px) {
+  
+.quote-bubbles-card{
+  height: 77dvh;
+}
+  .question-mark{
+    font-size:30px !important;
+  }
+  h3{
+    font-size:20px !important;
+  }
+  p{
+    font-size:15px !important;
+  }
+  blockquote{
+    font-size:15px !important;
+  }
+
+.quote-buttons{
+  display:flex;
+  flex-direction: column;
+}
+
+.hint-button{
+  width:40px;
+  height:40px;
+}
+
+
+.list-heading{
+  margin-left:0px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+
+.quotes-container{
+  width: 35dvw;
+  height:94dvh;
+}
+
+
+
+
+
+.minus-image{
+  width: 20px;
+  height: 10px;
+}
+
+.hint-text{
+  font-size:15px;
+}
+
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, 5px) scale(1);
+}
+/* 
+  Arrow slide down effect only on mouseenter (NOT on mouseleave)
+*/
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s; /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+
+}
+
+
+@media (max-width: 768px) {
+  [data-tooltip]:before {width:90px}
+[data-tooltip].clickedTooltip:before,
+[data-tooltip].clickedTooltip:after {
+  visibility: visible;
+  opacity: 1;
+}
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip].clickedTooltip:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, 5px) scale(1);
+}
+/* 
+  Arrow slide down effect only on mouseenter (NOT on mouseleave)
+*/
+[data-tooltip].clickedTooltip:after {
+  transition-delay: 0.5s; /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+
+
+}

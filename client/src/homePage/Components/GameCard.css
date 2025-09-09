@@ -1,0 +1,113 @@
+.play-card{
+  /*This also contains inline styling through react*/
+  width: clamp(230px, 18vw, 400px);
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 30px;
+  height: clamp(100px, 55vh, 400px);
+  display:flex;
+  align-content:center;
+}
+
+.play-text{
+  height: 15%;
+  color:#ffffffff;
+  font-size: 35px;
+  font-family: MedievalSharp;
+  width: 100%;
+}
+
+
+  .leftCard{
+    grid-area:left;
+    z-index:2;
+    scale:0.85;
+  }
+  .rightCard{
+    grid-area:right;
+    z-index:2;
+    scale:0.85;
+  }
+.farRightCard{
+  grid-area:farRight;
+  z-index:1;
+  scale:0.7;
+}
+
+.farLeftCard, .hidden{
+  grid-area:farLeft;
+  z-index:1;
+  scale:0.7;
+
+}
+
+.hidden{
+  display:none
+}
+
+.farLeftCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  background: linear-gradient(to right, rgba(26, 41, 62, 1), transparent);
+  z-index: 1;
+
+}
+
+.farRightCard::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  background: linear-gradient(to left, rgba(26, 41, 62, 1), transparent);
+  z-index: 1;
+
+}
+
+.card-bg{
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+  .center{
+    grid-area:center;
+    z-index:3;
+  }
+
+  @media (max-width: 768px) {
+
+.farRightCard::before, .farLeftCard::before { 
+  width:70px;
+  border-radius:0px;
+}
+.homepage-container{
+  grid-template-columns:50px 50px 50px 70px 50px 50px 50px;
+  grid-template-rows: 30px 180px;
+}
+.card-bg{
+  border-radius: 15px;
+}
+  .play-card{
+   height:150px;
+   width:100px;
+   font-size:5px;
+    border-radius: 15px;
+  }
+
+  .play-text{
+    font-size:15px;
+  }
+  }

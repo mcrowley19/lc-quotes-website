@@ -2,7 +2,7 @@
 import "./gamePage.css";
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import winSound from "./assets/success.mp3";
+import winSound from "../assets/success.mp3";
 
 
 

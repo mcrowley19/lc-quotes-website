@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./homePage";
-import EditPage from "./editPage"; 
-import GamePage from "./gamePage";
+import HomePage from "./homePage/homePage";
+import EditPage from "./editPage/editPage"; 
+import GamePage from "./gamePage/gamePage";
 import Macbeth from "./Texts/Macbeth"; 
 import Othello from "./Texts/Othello"; 
 import Merchant from "./Texts/Merchant"; 

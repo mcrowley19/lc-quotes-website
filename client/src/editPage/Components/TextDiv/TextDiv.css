@@ -1,0 +1,17 @@
+.play-text-card{
+  padding:40px;
+  background-color: white;
+  height: 92dvh;
+  overflow-y: auto;
+  border: none;
+  border-radius: 0px;
+  width:70vw;
+}
+
+@media (max-width: 768px) {
+  .play-text-card{
+    height:94dvh;
+    padding-left:20px;
+    padding-right:5px;
+  }
+}

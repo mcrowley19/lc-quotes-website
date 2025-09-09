@@ -1,0 +1,19 @@
+
+
+.editpage-div{
+  display: flex; 
+  height: 92dvh;
+  min-width:100vw;
+  overflow-y: hidden
+}
+
+
+/*Changes for mobile devices*/
+@media (max-width: 768px) {
+
+
+.editpage-div{
+  height:94dvh;
+}
+}
+

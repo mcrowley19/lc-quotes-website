@@ -1,0 +1,61 @@
+.scroll-card{
+  /*Also contains react inline styling*/
+  background:white;
+  height: 92dvh;
+  overflow-y: auto;
+  border-radius: 0px;
+  border-right: none;
+  position: absolute;
+}
+
+.scroll-card.expanded {
+  width: 12vw;
+  z-index:1000;
+}
+
+.scroll-card.collapsed {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+}
+
+.scroll-collapse{
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  margin: 5px; 
+}
+
+.collapse-image{
+  height:100%;
+  width:100%;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+.scroll-collapse{
+  width:30px;
+  height:30px;
+}
+
+.scroll-card{
+  height:94dvh;
+}
+.scroll-card.expanded {
+    width: 20vw;
+    border-right:solid;
+    border-width:2px;
+    border-color:gray
+}
+
+.scroll-card.collapsed {
+    width: 20vw;
+}
+}

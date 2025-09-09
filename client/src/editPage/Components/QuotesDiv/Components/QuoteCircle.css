@@ -1,0 +1,43 @@
+
+.quote-circle{
+  padding-left: 10px;
+  padding-right:10px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.quote-circle-green-half{
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  background: hsl(214, 40%, 40%);
+  color:white;
+  padding: 10px;
+}
+
+.quote-circle-red-half{
+  margin-right:10px;
+  border: none;
+  background: transparent;
+  align-items:center;
+  float:right;
+  height:20px;
+  width:20px;
+}
+
+.del-button{
+  height:25px;
+}
+
+@media (max-width: 768px) {
+  .quote-circle-green-half{
+    padding:3px;
+  }
+  .del-button{
+    height:15px;
+  }
+
+  .quote-bubble-text{
+  font-size:13px;
+}
+}
